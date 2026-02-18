@@ -1,7 +1,7 @@
 {
-  "name": "weconnectfamilies",
+  "name": "jcxpress",
   "version": "1.0.0",
-  "description": "WE Connect Families - Transportation Booking System",
+  "description": "JCXPRESS - Prison Transportation Booking System",
   "main": "server.js",
   "engines": {
     "node": ">=16.0.0"
@@ -29,8 +29,10 @@
   "keywords": [
     "transportation",
     "booking",
+    "prison",
+    "correctional",
     "families"
   ],
-  "author": "WE Connect Families",
+  "author": "JCXPRESS",
   "license": "ISC"
 }

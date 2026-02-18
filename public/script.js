@@ -2,26 +2,18 @@
 // FACILITY PRICING DATA
 // ===========================================
 const facilityPricing = {
-    'Clinton Correctional Facility': { adult: 150, child: 110 },
-    'Barehill Correctional Facility': { adult: 150, child: 110 },
-    'Franklin Correctional Facility': { adult: 150, child: 110 },
-    'Altona Correctional Facility': { adult: 150, child: 110 },
-    'Upstate Correctional Facility': { adult: 150, child: 110 },
-    'Mid-State Correctional Facility': { adult: 125, child: 80 },
-    'Marcy Correctional Facility': { adult: 125, child: 80 },
-    'Mohawk Correctional Facility': { adult: 125, child: 80 },
-    'Washington Correctional Facility': { adult: 125, child: 80 },
-    'Coxsackie Correctional Facility': { adult: 100, child: 80 },
-    'Greene Correctional Facility': { adult: 100, child: 80 },
-    'Riverview Correctional Facility': { adult: 160, child: 120 },
-    'Gouverneur Correctional Facility': { adult: 160, child: 120 },
-    'Cape Vincent Correctional Facility': { adult: 160, child: 120 },
-    'Adirondack Correctional Facility': { adult: 160, child: 120 },
-    'Raybrook Correctional Facility': { adult: 160, child: 120 },
-    'Collins Correctional Facility': { adult: 200, child: 150 },
-    'Lakeview Correctional Facility': { adult: 200, child: 150 },
-    'Otisville Correctional Facility': { adult: 125, child: 80 },
-    'Otisville FCI': { adult: 125, child: 80 }
+    'Attica Correctional Facility': { adult: 140, child: 100 },
+    'Auburn Correctional Facility': { adult: 100, child: 65 },
+    'Cayuga Correctional Facility': { adult: 100, child: 65 },
+    'Elmira Correctional Facility': { adult: 100, child: 65 },
+    'Five Points Correctional Facility': { adult: 100, child: 65 },
+    'Groveland Correctional Facility': { adult: 140, child: 100 },
+    'Marcy Correctional Facility': { adult: 110, child: 65 },
+    'Mid-State Correctional Facility': { adult: 110, child: 65 },
+    'Mohawk Correctional Facility': { adult: 110, child: 60 },
+    'Orleans Correctional Facility': { adult: 110, child: 100 },
+    'Wende Correctional Facility': { adult: 110, child: 100 },
+    'Wyoming Correctional Facility': { adult: 140, child: 100 }
 };
 
 const DEPOSIT_PER_SEAT = 20;
@@ -921,120 +913,94 @@ function initializeDemoData() {
 
 // Pickup locations data based on facilities
 const pickupLocationData = {
-    // Southern Facilities (4am-5am)
-    'Coxsackie Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '4:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR', time: '4:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 1500 Arnow Avenue', time: '4:30 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '5:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
+    // Group 1 - Early Morning Pickups (12:30am-1:45am): Auburn, Cayuga, Elmira, Five Points, Marcy, Mid-State, Mohawk
+    'Auburn Correctional Facility': [
+        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
+        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
+        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    'Greene Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '4:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR', time: '4:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 1500 Arnow Avenue', time: '4:30 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '5:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
+    'Cayuga Correctional Facility': [
+        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
+        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
+        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    'Washington Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '4:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR', time: '4:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 1500 Arnow Avenue', time: '4:30 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '5:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
+    'Elmira Correctional Facility': [
+        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
+        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
+        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    'Otisville Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '4:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR', time: '4:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '5:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Otisville FCI': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '4:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR', time: '4:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '5:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-
-    // Northern Facilities (12am-12:30am)
-    'Clinton Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Altona Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Franklin Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Barehill Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Upstate Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Adirondack Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Raybrook Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    
-    // Central Facilities (2am-3am)
-    'Mohawk Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '2:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR (Corner of Sutphin BLVD)', time: '2:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '2:40 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '3:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
-    ],
-    'Mid-State Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '2:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR (Corner of Sutphin BLVD)', time: '2:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '2:40 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '3:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
+    'Five Points Correctional Facility': [
+        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
+        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
+        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
     'Marcy Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '2:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm' },
-        { name: 'Queens: Jamaica Station LIRR (Corner of Sutphin BLVD)', time: '2:15 AM', address: 'Corner of Sutphin BLVD', value: 'queens-jamaica' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '2:40 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow' },
-        { name: 'Bronx: 161 McDonald\'s - Yankee Stadium', time: '3:00 AM', address: '51-67 161st St', value: 'bronx-yankee' }
+        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
+        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
+        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    
-    // Western Facilities (12am-12:30am Sunday Only)
-    'Collins Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm', note: 'Sunday Only' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow', note: 'Sunday Only' },
-        { name: 'Bronx: 161 Yankee Stadium Gate 6', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-gate6', note: 'Sunday Only' }
+    'Mid-State Correctional Facility': [
+        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
+        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
+        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    'Lakeview Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm', note: 'Sunday Only' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow', note: 'Sunday Only' },
-        { name: 'Bronx: 161 Yankee Stadium Gate 6', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-gate6', note: 'Sunday Only' }
+    'Mohawk Correctional Facility': [
+        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
+        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
+        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    
-    // Sunday Only Facilities (12am-12:30am Sunday Only)
-    'Riverview Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm', note: 'Sunday Only' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow', note: 'Sunday Only' },
-        { name: 'Bronx: 161 Yankee Stadium Gate 6', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-gate6', note: 'Sunday Only' }
+
+    // Group 2 - Late Evening Pickups (10:30pm-11:30pm): Attica, Groveland, Wende, Wyoming, Orleans
+    'Attica Correctional Facility': [
+        { name: 'Brooklyn: Broadway Junction', time: '10:30 PM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Astoria Neptune Diner', time: '11:00 PM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '11:15 PM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '11:30 PM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    'Gouverneur Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm', note: 'Sunday Only' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow', note: 'Sunday Only' },
-        { name: 'Bronx: 161 Yankee Stadium Gate 6', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-gate6', note: 'Sunday Only' }
+    'Groveland Correctional Facility': [
+        { name: 'Brooklyn: Broadway Junction', time: '10:30 PM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Astoria Neptune Diner', time: '11:00 PM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '11:15 PM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '11:30 PM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
-    'Cape Vincent Correctional Facility': [
-        { name: 'Brooklyn: East New York McDonald\'s', time: '12:00 AM', address: '12 Pennsylvania Avenue', value: 'brooklyn-enm', note: 'Sunday Only' },
-        { name: 'Bronx: 1500 Arnow Avenue (Near Gunhill and Eastchester Rd)', time: '12:00 AM', address: '1500 Arnow Avenue', value: 'bronx-arnow', note: 'Sunday Only' },
-        { name: 'Bronx: 161 Yankee Stadium Gate 6', time: '12:30 AM', address: '51-67 161st St', value: 'bronx-gate6', note: 'Sunday Only' }
+    'Wende Correctional Facility': [
+        { name: 'Brooklyn: Broadway Junction', time: '10:30 PM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Astoria Neptune Diner', time: '11:00 PM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '11:15 PM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '11:30 PM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
+    ],
+    'Wyoming Correctional Facility': [
+        { name: 'Brooklyn: Broadway Junction', time: '10:30 PM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Astoria Neptune Diner', time: '11:00 PM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '11:15 PM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '11:30 PM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
+    ],
+    'Orleans Correctional Facility': [
+        { name: 'Brooklyn: Broadway Junction', time: '10:30 PM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
+        { name: 'Queens: Astoria Neptune Diner', time: '11:00 PM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Manhattan: 125th St Taco Bell', time: '11:15 PM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
+        { name: 'Bronx: Grand Concourse Hostos College', time: '11:30 PM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ]
 };
 

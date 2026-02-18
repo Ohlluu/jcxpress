@@ -1,6 +1,6 @@
-# WE Connect Families - Admin Booking System
+# JCXPRESS - Admin Booking System
 
-A complete booking management system for WE Connect Families transportation service with admin dashboard, SMS/Email notifications, and database storage.
+A complete booking management system for JCXPRESS transportation service with admin dashboard, SMS/Email notifications, and database storage.
 
 ## 🚀 Features
 
@@ -165,7 +165,7 @@ npm run dev  # Auto-restart on changes
 npm install -g pm2
 
 # Start with PM2
-pm2 start server.js --name "weconnect"
+pm2 start server.js --name "jcxpress"
 
 # Setup auto-restart
 pm2 startup
@@ -293,7 +293,7 @@ npm run dev
 npm start
 
 # View logs
-pm2 logs weconnect
+pm2 logs jcxpress
 ```
 
 **Need help?** Contact the development team or check the server logs for detailed error information.

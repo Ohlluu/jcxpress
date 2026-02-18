@@ -6,33 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>NYS Prison Transportation | Visit Loved Ones in Prison | JCXPRESS</title>
-    <meta name="title" content="NYS Prison Transportation | Visit Loved Ones in Prison | JCXPRESS">
-    <meta name="description" content="Affordable NYS prison transportation to 12 correctional facilities in New York State. Visit your loved one, spouse, or partner in prison with safe, compassionate service. Brooklyn, Bronx, Queens, Manhattan, Astoria pickup. Book today!">
-    <meta name="keywords" content="prison transportation NYS, NYS prison transportation, visit loved ones in prison, prison wife transportation, prison girlfriend transportation, prison family visits, visit incarcerated loved one, correctional facility transportation New York, New York prison visits, family transportation services, prison transportation service near me, weekend prison transportation, how to visit someone in prison NY, transportation to prison from NYC, Attica Correctional, Auburn Correctional, Cayuga Correctional, Elmira Correctional, prison visit booking, visiting hours prison transportation, Brooklyn prison transportation, Bronx prison transportation, Queens prison transportation, Manhattan prison transportation, Astoria prison transportation, affordable prison transportation, prison visit rides, inmate visit transportation, spouse in prison support, visiting partner in prison, prison family support New York">
-    <meta name="author" content="JCXPRESS">
+    <title>NYS Prison Transportation | Visit Loved Ones in Prison | WE Connect Families</title>
+    <meta name="title" content="NYS Prison Transportation | Visit Loved Ones in Prison | WE Connect Families">
+    <meta name="description" content="Affordable NYS prison transportation to 20 correctional facilities in New York State. Visit your loved one, spouse, or partner in prison with safe, compassionate service. Brooklyn, Bronx, Queens pickup. Book today!">
+    <meta name="keywords" content="prison transportation NYS, NYS prison transportation, visit loved ones in prison, prison wife transportation, prison girlfriend transportation, prison family visits, visit incarcerated loved one, correctional facility transportation New York, New York prison visits, family transportation services, prison transportation service near me, weekend prison transportation, how to visit someone in prison NY, transportation to prison from NYC, Clinton Correctional transportation, Coxsackie prison rides, Greene Correctional visits, prison visit booking, visiting hours prison transportation, Brooklyn prison transportation, Bronx prison transportation, Queens prison transportation, affordable prison transportation, prison visit rides, inmate visit transportation, spouse in prison support, visiting partner in prison, prison family support New York">
+    <meta name="author" content="WE Connect Families">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://jcxpress.com/">
+    <link rel="canonical" href="https://weconnectfam.com/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jcxpress.com/">
-    <meta property="og:title" content="JCXPRESS | Prison Transportation Services | New York">
-    <meta property="og:description" content="Reliable prison transportation services across New York State. Weekend service to 12 correctional facilities. Book your visit transportation today.">
-    <meta property="og:image" content="https://jcxpress.com/jcxpress.png">
-    <meta property="og:site_name" content="JCXPRESS">
+    <meta property="og:url" content="https://weconnectfam.com/">
+    <meta property="og:title" content="WE Connect Families | Prison Transportation Services | New York">
+    <meta property="og:description" content="Reliable prison transportation services across New York State. Serving families since 2014. Book your visit transportation today.">
+    <meta property="og:image" content="https://weconnectfam.com/connect.png">
+    <meta property="og:site_name" content="WE Connect Families">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://jcxpress.com/">
-    <meta name="twitter:title" content="JCXPRESS | Prison Transportation Services">
-    <meta name="twitter:description" content="Reliable prison transportation services across New York State. Weekend service to 12 correctional facilities.">
-    <meta name="twitter:image" content="https://jcxpress.com/jcxpress.png">
+    <meta name="twitter:url" content="https://weconnectfam.com/">
+    <meta name="twitter:title" content="WE Connect Families | Prison Transportation Services">
+    <meta name="twitter:description" content="Reliable prison transportation services across New York State. Serving families since 2014.">
+    <meta name="twitter:image" content="https://weconnectfam.com/connect.png">
 
     <!-- Geographic Meta Tags -->
     <meta name="geo.region" content="US-NY">
@@ -41,8 +41,8 @@
     <meta name="ICBM" content="40.7128, -74.0060">
 
     <!-- Contact Information -->
-    <meta name="contact" content="info@jcxpress.com">
-    <meta name="telephone" content="+1-917-244-5352">
+    <meta name="contact" content="weconnectfamiliesllc@gmail.com">
+    <meta name="telephone" content="+1-646-226-2433">
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#0DB7BB">
@@ -65,11 +65,14 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "JCXPRESS",
-      "alternateName": "JCXPRESS Transportation",
-      "url": "https://jcxpress.com",
-      "logo": "https://jcxpress.com/jcxpress.png",
-      "description": "Prison transportation services connecting families with their incarcerated loved ones across New York State. Weekend service to 12 correctional facilities.",
+      "name": "WE Connect Families",
+      "alternateName": "WE Connect Families Transportation",
+      "url": "https://weconnectfam.com",
+      "logo": "https://weconnectfam.com/logo.png",
+      "description": "Prison transportation services connecting families with their incarcerated loved ones across New York State since 2014.",
+      "foundingDate": "2014",
+      "nonprofitStatus": "Nonprofit501c3",
+      "taxID": "501(c)(3)",
       "areaServed": {
         "@type": "State",
         "name": "New York"
@@ -82,15 +85,21 @@
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "telephone": "+1-917-244-5352",
+          "telephone": "+1-646-226-2433",
           "contactType": "Customer Service",
-          "availableLanguage": ["English"]
+          "availableLanguage": ["English", "Spanish"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-347-967-6711",
+          "contactType": "Customer Service",
+          "availableLanguage": "Spanish"
         }
       ],
       "sameAs": [
-        "https://instagram.com/jcxpressbus"
+        "https://instagram.com/wetransportation2015"
       ],
-      "email": "info@jcxpress.com"
+      "email": "weconnectfamiliesllc@gmail.com"
     }
     </script>
 
@@ -102,13 +111,13 @@
       "name": "Prison Transportation Services",
       "provider": {
         "@type": "Organization",
-        "name": "JCXPRESS"
+        "name": "WE Connect Families"
       },
       "areaServed": {
         "@type": "State",
         "name": "New York"
       },
-      "description": "Weekend transportation services to 12 correctional facilities across New York State",
+      "description": "Weekend transportation services to 20 correctional facilities across New York State",
       "offers": {
         "@type": "Offer",
         "availability": "https://schema.org/InStock",
@@ -127,10 +136,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What correctional facilities does JCXPRESS serve?",
+          "name": "What correctional facilities does WE Connect Families serve?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "JCXPRESS provides transportation to 12 correctional facilities across New York State including Attica, Auburn, Cayuga, Elmira, Five Points, Groveland, Marcy, Mid-State, Mohawk, Orleans, Wende, and Wyoming Correctional Facilities."
+            "text": "WE Connect Families provides transportation to 20 correctional facilities across New York State including Clinton, Coxsackie, Greene, Washington, Altona, Franklin, Barehill, Upstate, Adirondack, Raybrook, Mohawk, Mid-State, Marcy, Riverview, Gouverneur, Cape Vincent, Collins, Lakeview, Otisville, and Otisville FCI Correctional Facilities."
           }
         },
         {
@@ -138,7 +147,7 @@
           "name": "How can I visit my loved one in prison in New York?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "JCXPRESS provides safe, reliable transportation from NYC (Brooklyn, Bronx, Queens, Manhattan, Astoria) to 12 correctional facilities across New York State. Book online or call (917) 244-5352 to schedule your visit."
+            "text": "WE Connect Families provides safe, reliable transportation from NYC (Brooklyn, Bronx, Queens) to 20 correctional facilities across New York State. Book online or call (646) 226-2433 to schedule your visit."
           }
         },
         {
@@ -146,15 +155,15 @@
           "name": "Is there transportation from NYC to visit inmates in prison?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! JCXPRESS offers weekend transportation from Brooklyn, Bronx, Queens, Manhattan, and Astoria to correctional facilities throughout New York State. We provide compassionate, affordable transportation services every Saturday and Sunday."
+            "text": "Yes! WE Connect Families offers weekend transportation from Brooklyn, Bronx, and Queens to correctional facilities throughout New York State. We've been serving families since 2014 with compassionate, affordable transportation services."
           }
         },
         {
           "@type": "Question",
-          "name": "When does JCXPRESS operate?",
+          "name": "When does WE Connect Families operate?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "JCXPRESS provides transportation services every weekend (Saturdays and Sundays). Call (917) 244-5352 for facility-specific schedules and pickup times."
+            "text": "WE Connect Families provides transportation services every weekend (Saturdays and Sundays) and on federal holidays. Some facilities are served on specific days only. Call (646) 226-2433 for facility-specific schedules."
           }
         },
         {
@@ -162,15 +171,15 @@
           "name": "How much does prison transportation cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "JCXPRESS provides affordable prison transportation services. Pricing varies by facility from $60-$140 per person. Contact us at (917) 244-5352 for pricing information and to book your visit."
+            "text": "WE Connect Families is a 501(c)(3) nonprofit organization providing affordable prison transportation services. Contact us at (646) 226-2433 for pricing information and to book your visit."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I contact JCXPRESS?",
+          "name": "Does WE Connect Families speak Spanish?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can reach JCXPRESS by phone at (917) 244-5352, by email at info@jcxpress.com, or follow us on Instagram @jcxpressbus."
+            "text": "Yes, WE Connect Families has Spanish-speaking staff available. You can call our Spanish line at (347) 967-6711. Hablamos Español!"
           }
         },
         {
@@ -178,15 +187,15 @@
           "name": "Can I visit my husband/wife/partner in prison?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! JCXPRESS helps spouses, partners, family members, and loved ones visit inmates at 12 correctional facilities across New York. We provide compassionate, reliable transportation every weekend."
+            "text": "Yes! WE Connect Families helps spouses, partners, family members, and loved ones visit inmates at 20 correctional facilities across New York. We provide compassionate, reliable transportation every weekend."
           }
         },
         {
           "@type": "Question",
-          "name": "Where does JCXPRESS pick up passengers?",
+          "name": "Where does WE Connect Families pick up passengers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "JCXPRESS has convenient pickup locations in Brooklyn (Eastern Pkwy & Broadway Junction), Queens (Sutphin Blvd & Astoria), Manhattan (125th St), and Bronx (Grand Concourse). Pickup times vary by facility destination."
+            "text": "WE Connect Families has convenient pickup locations in Brooklyn (East New York McDonald's at 12 Pennsylvania Avenue), Queens (Jamaica Station LIRR), and the Bronx (161 Yankee Stadium). Pickup times vary by facility destination."
           }
         }
       ]
@@ -203,7 +212,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span>JCXPRESS</span>
+                <span>WE Connect Families</span>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
@@ -225,27 +234,30 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Connecting Families <span class="highlight">Every Weekend</span></h1>
+                <h1 class="hero-title">Connecting Families <span class="highlight">Since 2014</span></h1>
+                <div class="hero-spanish-notice">
+                    <strong>Hablamos Español</strong> - WE speak Spanish! Call (347) 967-6711
+                </div>
                 <p class="hero-description">
-                    Reliable, safe, and compassionate transportation to 12 correctional facilities across New York State.
-                    We understand the importance of staying connected with your loved ones.
+                    Reliable, safe, and compassionate transportation to correctional facilities across New York State. 
+                    WE understand the importance of staying connected with your loved ones.
                 </p>
                 <div class="hero-buttons">
                     <a href="#book" class="btn btn-primary">Book with $20 Deposit</a>
-                    <a href="tel:9172445352" class="btn btn-outline">Call (917) 244-5352</a>
+                    <a href="tel:6462262433" class="btn btn-outline">Call (646) 226-2433</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">12</span>
+                        <span class="stat-number">11+</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">20</span>
                         <span class="stat-label">Facilities</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">Weekend</span>
-                        <span class="stat-label">Service</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">NYC</span>
-                        <span class="stat-label">Pickup</span>
+                        <span class="stat-number">5K+</span>
+                        <span class="stat-label">Families</span>
                     </div>
                 </div>
             </div>
@@ -391,7 +403,7 @@
                                 <input type="checkbox" id="sms-consent" name="sms-consent" required>
                                 <span class="checkmark"></span>
                                 <span class="consent-text">
-                                    📱 I consent to receive SMS text messages from JCXPRESS regarding my booking confirmations, status updates, and transportation notifications. Message and data rates may apply. Reply STOP to opt out anytime.
+                                    📱 I consent to receive SMS text messages from WE Connect Families regarding my booking confirmations, status updates, and transportation notifications. Message and data rates may apply. Reply STOP to opt out anytime.
                                 </span>
                             </label>
                         </div>
@@ -731,15 +743,15 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About JCXPRESS</h2>
+                    <h2>About WE Connect Families</h2>
                     <p>
-                        JCXPRESS is your trusted transportation service connecting families
-                        with their incarcerated loved ones across New York State. We understand that maintaining these
+                        Since 2014, WE Connect Families has been the trusted transportation service connecting families 
+                        with their incarcerated loved ones across New York State. WE understand that maintaining these 
                         important relationships shouldn't be limited by distance or transportation barriers.
                     </p>
                     <p>
-                        Our experienced team provides safe, reliable, and dignified transportation services every weekend
-                        to 12 correctional facilities throughout New York. We help families stay connected
+                        Our experienced team provides safe, reliable, and dignified transportation services every weekend 
+                        to 20 correctional facilities throughout New York. We've helped thousands of families stay connected 
                         during some of life's most challenging times.
                     </p>
                     <div class="about-features">
@@ -753,7 +765,7 @@
                         </div>
                         <div class="feature">
                             <span class="feature-icon">⏰</span>
-                            <span>Weekend Service</span>
+                            <span>25+ Years of Experience</span>
                         </div>
                     </div>
                 </div>
@@ -766,23 +778,31 @@
         <div class="container">
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2>Contact Us</h2>
+                    <h2>Contact Us / Contáctanos</h2>
                     <p>Questions about our services? Ready to book? We're here to help.</p>
-
+                    
                     <div class="contact-details">
                         <div class="contact-item">
                             <span class="contact-icon">📞</span>
                             <div>
-                                <strong>Phone</strong>
-                                <a href="tel:9172445352">(917) 244-5352</a>
+                                <strong>Phone / Teléfono</strong>
+                                <a href="tel:6462262433">(646) 226-2433</a>
                             </div>
                         </div>
 
                         <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <strong>Spanish Line / Línea en Español</strong>
+                                <a href="tel:3479676711">(347) 967-6711</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
                             <span class="contact-icon">✉️</span>
                             <div>
                                 <strong>Email</strong>
-                                <a href="mailto:info@jcxpress.com">info@jcxpress.com</a>
+                                <a href="mailto:weconnectfamiliesllc@gmail.com">weconnectfamiliesllc@gmail.com</a>
                             </div>
                         </div>
 
@@ -790,26 +810,69 @@
                             <span class="contact-icon">📸</span>
                             <div>
                                 <strong>Instagram</strong>
-                                <a href="https://instagram.com/jcxpressbus" target="_blank" rel="noopener">@jcxpressbus</a>
+                                <a href="https://instagram.com/wetransportation2015?r=nametag" target="_blank" rel="noopener">@wetransportation2015</a>
                             </div>
                         </div>
-
+                        
                         <div class="contact-item">
                             <span class="contact-icon">🕒</span>
                             <div>
                                 <strong>Office Hours</strong>
-                                <span>Monday - Sunday, 8AM - 8PM</span>
+                                <span>Monday - Friday, 9AM - 7PM</span>
                             </div>
                         </div>
-
+                        
                         <div class="contact-item">
                             <span class="contact-icon">🚐</span>
                             <div>
                                 <strong>Transportation</strong>
-                                <span>Every Weekend (Saturday & Sunday)</span>
+                                <span>Every Weekend</span>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nonprofit Donation Section -->
+    <section class="donation-section">
+        <div class="container">
+            <div class="donation-content">
+                <div class="donation-badge">
+                    <span class="badge-icon">🏛️</span>
+                    <span class="badge-text">501(c)(3) Approved Nonprofit</span>
+                </div>
+                <h2>Support Our Mission</h2>
+                <p>WE Connect Families is an IRS-approved 501(c)(3) tax-exempt nonprofit organization. Your donations help us continue connecting families with their loved ones.</p>
+                
+                <div class="donation-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💰</span>
+                        <div>
+                            <strong>Tax Deductible</strong>
+                            <p>All donations are tax-deductible under IRC Section 170</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📋</span>
+                        <div>
+                            <strong>Official Documentation</strong>
+                            <p>Receive proper receipts for tax filing purposes</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">❤️</span>
+                        <div>
+                            <strong>Direct Impact</strong>
+                            <p>100% of donations support transportation services for families</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="donation-cta">
+                    <a href="tel:6462262433" class="btn btn-primary">Contact Us to Donate</a>
+                    <p class="donation-note">Call us at (646) 226-2433 to make a tax-deductible donation</p>
                 </div>
             </div>
         </div>
@@ -823,18 +886,18 @@
             <div style="max-width: 900px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
 
                 <h3>Transportation Service Disclaimer</h3>
-                <p><strong>Important Notice:</strong> JCXPRESS operates as a third-party booking and coordination service that connects customers with independent transportation providers. We do not own, operate, or directly provide the transportation vehicles or driving services.</p>
-                <p><strong>Liability:</strong> All transportation services are arranged through and provided by licensed, independent transportation companies and operators. JCXPRESS acts solely as a facilitator and coordinator between customers and these independent transportation providers. JCXPRESS is not liable for any incidents, delays, accidents, injuries, or issues that may occur during transportation.</p>
-                <p><strong>Acknowledgment:</strong> By booking through JCXPRESS, you acknowledge and agree that:</p>
+                <p><strong>Important Notice:</strong> WE Connect Families operates as a third-party booking and coordination service that connects customers with independent transportation providers. We do not own, operate, or directly provide the transportation vehicles or driving services.</p>
+                <p><strong>Liability:</strong> All transportation services are arranged through and provided by licensed, independent transportation companies and operators. WE Connect Families acts solely as a facilitator and coordinator between customers and these independent transportation providers. WE Connect Families is not liable for any incidents, delays, accidents, injuries, or issues that may occur during transportation.</p>
+                <p><strong>Acknowledgment:</strong> By booking through WE Connect Families, you acknowledge and agree that:</p>
                 <ul>
-                    <li>JCXPRESS serves as a booking coordinator and facilitator only</li>
+                    <li>WE Connect Families serves as a booking coordinator and facilitator only</li>
                     <li>Transportation services are provided by independent third-party transportation companies</li>
                     <li>Any claims, disputes, or issues related to the transportation service itself should be directed to the transportation provider</li>
-                    <li>JCXPRESS' role is limited to coordinating bookings and does not extend to the operation of vehicles or provision of transportation services</li>
+                    <li>WE Connect Families' role is limited to coordinating bookings and does not extend to the operation of vehicles or provision of transportation services</li>
                 </ul>
 
                 <h3 style="margin-top: 2rem;">SMS Messaging Terms</h3>
-                <p>By checking the SMS consent checkbox during booking, you agree to receive text messages from JCXPRESS regarding your booking confirmations, status updates, and transportation notifications. These messages may include:</p>
+                <p>By checking the SMS consent checkbox during booking, you agree to receive text messages from WE Connect Families regarding your booking confirmations, status updates, and transportation notifications. These messages may include:</p>
                 <ul>
                     <li>Booking confirmation with pickup location, time, and facility details</li>
                     <li>Reminder messages before your scheduled trip</li>
@@ -847,10 +910,10 @@
                 <p><strong>Supported Carriers:</strong> Messages are supported by all major U.S. carriers including AT&T, Verizon, T-Mobile, Sprint, and others.</p>
 
                 <h3 style="margin-top: 2rem;">Booking Terms</h3>
-                <p><strong>Service:</strong> JCXPRESS provides transportation services to correctional facilities in New York State. All bookings are subject to availability and admin confirmation.</p>
+                <p><strong>Service:</strong> WE Connect Families provides transportation services to correctional facilities in New York State. All bookings are subject to availability and admin confirmation.</p>
                 <p><strong>Confirmation Required:</strong> Your booking must be confirmed by our admin team before your trip is finalized. You will receive an SMS confirmation once approved.</p>
-                <p><strong>Check-In:</strong> Customers must check in on the day of travel using the same name used during booking. Check-in can be completed at https://jcxpress.com by clicking "Check In" in the navigation menu.</p>
-                <p><strong>Cancellations & Refund Policy:</strong> To cancel or modify your booking, please contact us at (917) 244-5352. <strong>Important:</strong> Booking deposits are only refundable if cancellation is made within 48 hours of the original booking time. Cancellations made after 48 hours from the time of booking are non-refundable. The 48-hour window begins from the time your booking payment was processed.</p>
+                <p><strong>Check-In:</strong> Customers must check in on the day of travel using the same name used during booking. Check-in can be completed at https://weconnectfam.com by clicking "Check In" in the navigation menu.</p>
+                <p><strong>Cancellations & Refund Policy:</strong> To cancel or modify your booking, please contact us at (347) 967-6711 or (646) 226-2433. <strong>Important:</strong> Booking deposits are only refundable if cancellation is made within 48 hours of the original booking time. Cancellations made after 48 hours from the time of booking are non-refundable. The 48-hour window begins from the time your booking payment was processed.</p>
                 <p><strong>No-Show Policy:</strong> If you do not check in or arrive at the designated pickup location on time, your reservation may be forfeited.</p>
 
                 <h3 style="margin-top: 2rem;">Privacy Policy</h3>
@@ -868,11 +931,11 @@
 
                 <h3 style="margin-top: 2rem;">Contact Information</h3>
                 <p>For questions about these Terms & Conditions or Privacy Policy, please contact us:</p>
-                <p><strong>Phone:</strong> (917) 244-5352<br>
-                <strong>Email:</strong> info@jcxpress.com<br>
-                <strong>Website:</strong> https://jcxpress.com</p>
+                <p><strong>Phone:</strong> (347) 967-6711 or (646) 226-2433<br>
+                <strong>Email:</strong> weconnectfamiliesllc@gmail.com<br>
+                <strong>Website:</strong> https://weconnectfam.com</p>
 
-                <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;"><strong>Last Updated:</strong> February 2026</p>
+                <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;"><strong>Last Updated:</strong> October 2025</p>
             </div>
         </div>
     </section>
@@ -882,8 +945,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span>JCXPRESS</span>
-                    <p>Connecting families every weekend</p>
+                    <span>WE Connect Families</span>
+                    <p>Connecting families since 2014</p>
                 </div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
@@ -894,7 +957,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 JCXPRESS. All rights reserved. | <a href="#terms" style="color: inherit; text-decoration: underline;">Terms & Conditions</a> | Website by <a href="https://ohlluudev.com" target="_blank" rel="noopener" style="color: #0DB7BB; font-weight: 600; text-decoration: underline;">ohlluudev.com</a></p>
+                <p>&copy; 2025 WE Connect Families. All rights reserved. | <a href="#terms" style="color: inherit; text-decoration: underline;">Terms & Conditions</a> | Website by <a href="https://ohlluudev.com" target="_blank" rel="noopener" style="color: #0DB7BB; font-weight: 600; text-decoration: underline;">ohlluudev.com</a></p>
             </div>
         </div>
     </footer>
