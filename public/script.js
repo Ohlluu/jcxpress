@@ -35,41 +35,21 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Smooth scrolling for navigation links with special handling for Check In
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const href = this.getAttribute('href');
 
-        // Special handling for Check In navigation
-        if (href === '#check-in-section') {
-            const isMobile = window.innerWidth <= 768;
+        const target = document.querySelector(href);
+        if (target) {
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = target.offsetTop - navHeight;
 
-            if (isMobile) {
-                // On mobile: scroll to the check-in section
-                const target = document.querySelector('#check-in-section');
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            } else {
-                // On desktop: scroll to booking section (where check-in box is visible)
-                const bookingSection = document.querySelector('#book');
-                if (bookingSection) {
-                    bookingSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        } else {
-            // Regular navigation for other links
-            const target = document.querySelector(href);
-            if (target) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         }
     });
 });
@@ -88,7 +68,6 @@ window.addEventListener('scroll', () => {
 
 // Form handling
 const bookingForm = document.getElementById('booking-form');
-const checkinForm = document.getElementById('checkin-form');
 
 // ===========================================
 // PRICE CALCULATOR LOGIC
@@ -298,53 +277,6 @@ if (bookingForm) {
         } finally {
             buttonText.textContent = originalText;
             spinner.style.display = 'none';
-            submitBtn.disabled = false;
-        }
-    });
-}
-
-// Check-in form submission
-if (checkinForm) {
-    checkinForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById('checkin-name').value.trim();
-
-        if (!name) {
-            showNotification('Please enter your full name', 'error');
-            return;
-        }
-
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Checking In...';
-        submitBtn.disabled = true;
-
-        try {
-            const response = await fetch(`${API_BASE}/api/checkin`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name })
-            });
-
-            const data = await response.json();
-
-            if (response.ok && data.success) {
-                showNotification(data.message, 'success');
-
-                // Clear form
-                document.getElementById('checkin-name').value = '';
-            } else {
-                showNotification(data.error || 'Check-in failed. Please try again.', 'error');
-            }
-
-        } catch (error) {
-            console.error('Check-in error:', error);
-            showNotification('Check-in failed. Please try again or contact us.', 'error');
-        } finally {
-            submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }
     });
@@ -738,7 +670,7 @@ function showNotification(message, type = 'info') {
 
 // Animation on scroll
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.booking-form, .checkin-box, .facility-card, .about-content');
+    const elements = document.querySelectorAll('.booking-form, .facility-card, .about-content');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
