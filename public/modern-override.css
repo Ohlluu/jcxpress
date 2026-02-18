@@ -306,6 +306,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex !important;
     flex-direction: column !important;
     gap: 0.5rem !important;
+    padding-left: 2rem !important;
 }
 
 .facility-header h3 {
@@ -331,6 +332,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.75rem !important;
     align-items: flex-end !important;
     text-align: right !important;
+    padding-right: 2rem !important;
 }
 
 .facility-status {
@@ -641,6 +643,8 @@ section {
     .facility-info {
         align-items: flex-start !important;
         text-align: left !important;
+        padding-right: 0 !important;
+        padding-left: 1.5rem !important;
     }
 
     .section-header {
