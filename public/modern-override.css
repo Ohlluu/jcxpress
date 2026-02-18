@@ -209,6 +209,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .facility-address {
     color: #999999 !important;
+    font-size: 0.9rem !important;
+    margin: 0.5rem 0 !important;
+}
+
+.facility-service {
+    color: #cccccc !important;
+    font-size: 0.9rem !important;
+    margin: 0.5rem 0 !important;
+    font-weight: 600 !important;
+}
+
+.facility-days {
+    color: #C41E3A !important;
+    font-size: 0.9rem !important;
+    margin: 0.5rem 0 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
 }
 
 /* About Section */
