@@ -45,7 +45,7 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 1.8rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(135deg, #C41E3A, #E53935);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -68,7 +68,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #0DB7BB;
+    color: #C41E3A;
     transform: translateY(-1px);
 }
 
@@ -79,7 +79,7 @@ body {
     height: 2px;
     bottom: -2px;
     left: 50%;
-    background: linear-gradient(90deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(90deg, #C41E3A, #E53935);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(-50%);
     border-radius: 2px;
@@ -98,7 +98,7 @@ body {
 .bar {
     width: 25px;
     height: 3px;
-    background: #0DB7BB;
+    background: #C41E3A;
     margin: 3px 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 2px;
@@ -109,7 +109,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #0DB7BB 0%, #4ECDC4 25%, #81D4D9 50%, #B6E5E7 100%);
+    background: linear-gradient(135deg, #C41E3A 0%, #E53935 25%, #EF5350 50%, #FFCDD2 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -235,7 +235,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #0DB7BB, #4ECDC4, #81D4D9);
+    background: linear-gradient(135deg, #C41E3A, #E53935, #EF5350);
     color: white;
     box-shadow: 0 8px 30px rgba(13, 183, 187, 0.3);
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -262,7 +262,7 @@ body {
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, #81D4D9, #B6E5E7);
+    background: linear-gradient(135deg, #EF5350, #FFCDD2);
     color: #2d3748;
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
@@ -353,7 +353,7 @@ body {
     left: 50%;
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(90deg, #C41E3A, #E53935);
     transform: translateX(-50%);
     border-radius: 2px;
 }
@@ -390,7 +390,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0DB7BB, #4ECDC4, #81D4D9);
+    background: linear-gradient(90deg, #C41E3A, #E53935, #EF5350);
 }
 
 .form-row {
@@ -435,7 +435,7 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #0DB7BB;
+    border-color: #C41E3A;
     box-shadow: 0 0 0 4px rgba(13, 183, 187, 0.1), 0 5px 15px rgba(13, 183, 187, 0.1);
     transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.95);
@@ -448,7 +448,7 @@ body {
 
 .weekend-only {
     font-size: 0.8rem;
-    color: #0DB7BB;
+    color: #C41E3A;
     font-weight: 500;
     background: rgba(13, 183, 187, 0.1);
     padding: 0.2rem 0.5rem;
@@ -474,7 +474,7 @@ body {
 
 .pickup-time-text {
     margin: 0;
-    color: #0DB7BB;
+    color: #C41E3A;
     font-weight: 500;
     font-size: 0.95rem;
 }
@@ -503,7 +503,7 @@ body {
 }
 
 .pickup-location-time {
-    background: linear-gradient(135deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(135deg, #C41E3A, #E53935);
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
@@ -585,7 +585,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     left: 0;
     width: 5px;
     height: 100%;
-    background: linear-gradient(180deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(180deg, #C41E3A, #E53935);
     border-radius: 0 20px 20px 0;
 }
 
@@ -633,7 +633,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .notification-option:hover {
-    border-color: #0DB7BB;
+    border-color: #C41E3A;
     box-shadow: 0 8px 30px rgba(13, 183, 187, 0.15);
     transform: translateY(-2px);
 }
@@ -652,7 +652,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     width: 20px;
     height: 20px;
     margin-top: 2px;
-    accent-color: #0DB7BB;
+    accent-color: #C41E3A;
 }
 
 .option-content {
@@ -673,7 +673,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .option-price {
     font-weight: 700;
-    color: #0DB7BB;
+    color: #C41E3A;
     background: rgba(129, 212, 217, 0.2);
     padding: 0.4rem 1rem;
     border-radius: 25px;
@@ -712,7 +712,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #4ECDC4, #0DB7BB, #81D4D9);
+    background: linear-gradient(90deg, #E53935, #C41E3A, #EF5350);
 }
 
 .checkin-box h3 {
@@ -777,13 +777,13 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0DB7BB, #4ECDC4, #81D4D9);
+    background: linear-gradient(90deg, #C41E3A, #E53935, #EF5350);
 }
 
 .facility-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 25px 60px rgba(13, 183, 187, 0.15);
-    border-color: #0DB7BB;
+    border-color: #C41E3A;
 }
 
 .facility-header {
@@ -1054,7 +1054,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0DB7BB, #4ECDC4, #81D4D9);
+    background: linear-gradient(90deg, #C41E3A, #E53935, #EF5350);
 }
 
 .footer-content {
@@ -1068,7 +1068,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     font-family: 'Dancing Script', cursive;
     font-size: 1.8rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #4ECDC4, #81D4D9);
+    background: linear-gradient(135deg, #E53935, #EF5350);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1107,7 +1107,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 .facility-details-btn {
     display: inline-block;
     width: 100%;
-    background: linear-gradient(135deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(135deg, #C41E3A, #E53935);
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -1129,7 +1129,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 .facility-details-btn:active {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(13, 183, 187, 0.4);
-    background: linear-gradient(135deg, #4ECDC4, #81D4D9);
+    background: linear-gradient(135deg, #E53935, #EF5350);
     outline: none;
 }
 
@@ -1172,9 +1172,9 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     width: 45px;
     height: 45px;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #0DB7BB;
+    border: 2px solid #C41E3A;
     border-radius: 50%;
-    color: #0DB7BB;
+    color: #C41E3A;
     font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
@@ -1187,7 +1187,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .modal-close:hover {
-    background: #0DB7BB;
+    background: #C41E3A;
     color: white;
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(13, 183, 187, 0.4);
@@ -1232,7 +1232,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .facility-header-info h3 {
-    color: #0DB7BB;
+    color: #C41E3A;
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -1245,7 +1245,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .thank-you {
-    color: #4ECDC4;
+    color: #E53935;
     font-weight: 500;
     font-style: italic;
 }
@@ -1260,7 +1260,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .meeting-locations h4 {
-    color: #0DB7BB;
+    color: #C41E3A;
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -1288,12 +1288,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .location-header strong {
-    color: #0DB7BB;
+    color: #C41E3A;
     font-size: 1.1rem;
 }
 
 .address {
-    color: #4ECDC4;
+    color: #E53935;
     font-weight: 600;
     font-size: 1rem;
 }
@@ -1348,7 +1348,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .parking-highlight {
     background: rgba(255, 255, 255, 0.95);
-    border: 2px solid #4ECDC4;
+    border: 2px solid #E53935;
     border-radius: 15px;
     padding: 1.5rem;
     margin-top: 1rem;
@@ -1357,7 +1357,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .parking-highlight p {
-    color: #0DB7BB;
+    color: #C41E3A;
     font-weight: 700;
     font-size: 1.1rem;
 }
@@ -1371,7 +1371,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .reservation-completion h4 {
-    color: #0DB7BB;
+    color: #C41E3A;
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -1400,7 +1400,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .contact-footer p {
-    color: #4ECDC4;
+    color: #E53935;
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
@@ -1484,7 +1484,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .admin-login-form h2 {
-    color: #0DB7BB;
+    color: #C41E3A;
     margin-bottom: 0.5rem;
 }
 
@@ -1504,12 +1504,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .admin-login-form input:focus {
     outline: none;
-    border-color: #0DB7BB;
+    border-color: #C41E3A;
 }
 
 .admin-login-form button {
     width: 100%;
-    background: linear-gradient(135deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(135deg, #C41E3A, #E53935);
     color: white;
     border: none;
     padding: 12px;
@@ -1531,7 +1531,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 2rem;
-    background: linear-gradient(135deg, #0DB7BB, #4ECDC4);
+    background: linear-gradient(135deg, #C41E3A, #E53935);
     color: white;
     border-radius: 15px 15px 0 0;
 }
@@ -1599,8 +1599,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .filter-btn.active,
 .filter-btn:hover {
-    background: #0DB7BB;
-    border-color: #0DB7BB;
+    background: #C41E3A;
+    border-color: #C41E3A;
     color: white;
 }
 
@@ -1642,12 +1642,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .visit-date-picker:hover {
-    border-color: #0DB7BB;
+    border-color: #C41E3A;
 }
 
 .visit-date-picker:focus {
     outline: none;
-    border-color: #0DB7BB;
+    border-color: #C41E3A;
     box-shadow: 0 0 0 3px rgba(13, 183, 187, 0.1);
 }
 
@@ -2206,7 +2206,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 /* Price Calculator */
 .price-calculator {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border: 2px solid #0DB7BB;
+    border: 2px solid #C41E3A;
     border-radius: 12px;
     padding: 1.5rem;
     margin: 2rem 0;
@@ -2214,7 +2214,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .calculator-header h3 {
-    color: #0DB7BB;
+    color: #C41E3A;
     font-size: 1.4rem;
     margin: 0 0 1rem 0;
     font-weight: 600;
@@ -2246,7 +2246,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .price-divider {
     height: 2px;
-    background: linear-gradient(90deg, transparent, #0DB7BB, transparent);
+    background: linear-gradient(90deg, transparent, #C41E3A, transparent);
     margin: 0.5rem 0;
 }
 
@@ -2257,7 +2257,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .total-price {
     font-size: 1.3rem;
-    color: #0DB7BB;
+    color: #C41E3A;
     font-weight: 700;
 }
 
@@ -2312,7 +2312,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 /* Visitor Information Banner */
 .visitor-info-banner {
-    background: linear-gradient(135deg, #0DB7BB 0%, #0a9a9e 100%);
+    background: linear-gradient(135deg, #C41E3A 0%, #0a9a9e 100%);
     padding: 2.5rem 0;
     margin: 0;
 }
@@ -2351,7 +2351,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .banner-button {
     background: white;
-    color: #0DB7BB;
+    color: #C41E3A;
     padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
@@ -2658,7 +2658,7 @@ html {
 
 .payment-section {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border: 2px solid #0DB7BB;
+    border: 2px solid #C41E3A;
     border-radius: 12px;
     padding: 2rem;
     margin: 2rem 0;
@@ -2679,7 +2679,7 @@ html {
 
 .payment-amount-display {
     background: white;
-    border: 2px solid #0DB7BB;
+    border: 2px solid #C41E3A;
     border-radius: 8px;
     padding: 1rem;
     display: flex;
@@ -2696,7 +2696,7 @@ html {
 .amount-value {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #0DB7BB;
+    color: #C41E3A;
 }
 
 .stripe-card-element {
@@ -2709,7 +2709,7 @@ html {
 }
 
 .stripe-card-element:focus-within {
-    border-color: #0DB7BB;
+    border-color: #C41E3A;
     box-shadow: 0 0 0 3px rgba(13, 183, 187, 0.1);
 }
 
