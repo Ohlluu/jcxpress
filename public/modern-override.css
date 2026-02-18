@@ -1,34 +1,40 @@
 /* ==========================================
-   JCXPRESS MODERN OVERRIDES
-   Bold, Edgy Design for Late 20s Male Owner
+   JCXPRESS CLEAN MODERN DESIGN
+   Minimalist, Bright, Apple/Stripe-inspired
    ========================================== */
 
-/* Base Typography - Bold & Modern */
+/* Base Typography - Clean & Readable */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif !important;
     font-weight: 400;
     color: #1a1a1a !important;
+    line-height: 1.6 !important;
+    background: #ffffff !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 900 !important;
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: -0.5px !important;
+    color: #1a1a1a !important;
 }
 
-/* Dark Navbar */
+/* Clean Navbar - Light & Simple */
 .navbar {
-    background: #1a1a1a !important;
-    border-bottom: 3px solid #C41E3A !important;
-    box-shadow: none !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    padding: 1rem 0 !important;
 }
 
 .nav-link {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.95rem !important;
+    transition: color 0.2s ease !important;
 }
 
 .nav-link:hover {
@@ -36,130 +42,154 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link::after {
-    background: #C41E3A !important;
-    height: 3px !important;
+    display: none !important;
 }
 
 .admin-login-button {
-    background: #C41E3A !important;
-    border-radius: 0 !important;
+    background: #f3f4f6 !important;
+    border-radius: 8px !important;
+    font-size: 1.2rem !important;
+    padding: 0.5rem 0.75rem !important;
+    border: none !important;
+    transition: background 0.2s ease !important;
 }
 
-/* Bold Hero - Dark Background */
+.admin-login-button:hover {
+    background: #e5e7eb !important;
+}
+
+/* Hero - Bright & Spacious */
 .hero {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
-    padding: 140px 0 100px !important;
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%) !important;
+    padding: 120px 0 80px !important;
 }
 
 .hero-title {
-    font-size: 4.5rem !important;
-    font-weight: 900 !important;
-    color: #ffffff !important;
-    text-transform: uppercase !important;
-    letter-spacing: -3px !important;
-    line-height: 1 !important;
+    font-size: 3.5rem !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    text-transform: none !important;
+    letter-spacing: -2px !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.5rem !important;
 }
 
 .hero-title .highlight {
     color: #C41E3A !important;
-    font-size: 3.5rem !important;
+    font-size: inherit !important;
 }
 
 .hero-description {
-    color: #cccccc !important;
-    font-size: 1.2rem !important;
+    color: #6b7280 !important;
+    font-size: 1.125rem !important;
+    font-weight: 400 !important;
+    max-width: 600px !important;
+    margin: 0 auto 2rem !important;
 }
 
 .hero-description:first-of-type {
-    color: #808080 !important;
-    font-weight: 800 !important;
-    font-size: 1.6rem !important;
-    letter-spacing: 4px !important;
+    color: #9ca3af !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    letter-spacing: 1px !important;
     text-transform: uppercase !important;
+    margin-bottom: 1rem !important;
 }
 
-/* Bold Buttons - No Rounded Corners */
+/* Modern Buttons - Rounded & Clean */
 .btn {
-    border-radius: 0 !important;
-    padding: 1.2rem 3rem !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1.5px !important;
-    font-size: 0.95rem !important;
+    border-radius: 12px !important;
+    padding: 0.875rem 2rem !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 1rem !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
 }
 
 .btn-primary {
     background: #C41E3A !important;
-    border: none !important;
-    box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.25) !important;
 }
 
 .btn-primary:hover {
     background: #a01830 !important;
-    transform: translateY(-4px) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(196, 30, 58, 0.3) !important;
 }
 
 .btn-outline {
     background: transparent !important;
-    color: #ffffff !important;
-    border: 3px solid #ffffff !important;
+    color: #1a1a1a !important;
+    border: 2px solid #e5e7eb !important;
+    box-shadow: none !important;
 }
 
 .btn-outline:hover {
-    background: #ffffff !important;
-    color: #1a1a1a !important;
+    background: #f9fafb !important;
+    border-color: #d1d5db !important;
 }
 
-/* Stats - Bold Numbers */
+/* Stats - Clean Numbers */
 .stat-number {
-    font-size: 3.5rem !important;
-    font-weight: 900 !important;
+    font-size: 3rem !important;
+    font-weight: 700 !important;
     color: #C41E3A !important;
 }
 
 .stat-label {
-    color: #808080 !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 2px !important;
+    color: #6b7280 !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.875rem !important;
 }
 
-/* Section Headers - All Caps Bold */
+/* Section Headers - Minimal & Clean */
 .section-header h2 {
-    font-size: 3.5rem !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    letter-spacing: -2px !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: -1px !important;
     color: #1a1a1a !important;
+    margin-bottom: 0.75rem !important;
 }
 
 .section-header p {
-    font-weight: 600 !important;
-    color: #666666 !important;
+    font-weight: 400 !important;
+    color: #6b7280 !important;
+    font-size: 1.125rem !important;
 }
 
-/* Form - Modern & Clean */
+/* Form - Clean & Spacious */
 .booking-form {
-    border-left: 5px solid #C41E3A !important;
-    border-radius: 0 !important;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15) !important;
+    border-left: 4px solid #C41E3A !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06) !important;
+    background: #ffffff !important;
+    padding: 2.5rem !important;
 }
 
 .form-group label {
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    font-size: 0.85rem !important;
-    color: #1a1a1a !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.875rem !important;
+    color: #374151 !important;
+    margin-bottom: 0.5rem !important;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    border-radius: 0 !important;
-    border: 2px solid #e0e0e0 !important;
-    background: #fafafa !important;
-    font-weight: 500 !important;
+    border-radius: 10px !important;
+    border: 1px solid #d1d5db !important;
+    background: #f9fafb !important;
+    font-weight: 400 !important;
+    padding: 0.75rem 1rem !important;
+    transition: all 0.2s ease !important;
 }
 
 .form-group input:focus,
@@ -167,145 +197,163 @@ h1, h2, h3, h4, h5, h6 {
 .form-group textarea:focus {
     border-color: #C41E3A !important;
     background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1) !important;
+    outline: none !important;
 }
 
-/* Facility Cards - Dark & Bold */
+/* Facility Cards - Clean & Modern */
 .facility-card {
-    background: #1a1a1a !important;
-    border-left: 5px solid #C41E3A !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    background: #ffffff !important;
+    border-left: 4px solid #C41E3A !important;
+    border-radius: 16px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    padding: 1.5rem !important;
 }
 
 .facility-card:hover {
-    transform: translateX(10px) !important;
-    box-shadow: -8px 8px 0 #C41E3A !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 .facility-header h3 {
-    color: #ffffff !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    font-size: 1.5rem !important;
+    color: #1a1a1a !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: -0.5px !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 0.25rem !important;
 }
 
 .facility-location {
-    color: #808080 !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
+    color: #9ca3af !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.875rem !important;
 }
 
 .facility-status {
-    background: #C41E3A !important;
-    color: #ffffff !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    border-radius: 0 !important;
+    background: #fef2f2 !important;
+    color: #C41E3A !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+    display: inline-block !important;
+    font-size: 0.875rem !important;
+    margin-top: 1rem !important;
 }
 
 .facility-address {
-    color: #999999 !important;
-    font-size: 0.9rem !important;
-    margin: 0.5rem 0 !important;
+    color: #6b7280 !important;
+    font-size: 0.875rem !important;
+    margin: 0.75rem 0 !important;
+    line-height: 1.5 !important;
 }
 
 .facility-service {
-    color: #cccccc !important;
-    font-size: 0.9rem !important;
+    color: #4b5563 !important;
+    font-size: 0.875rem !important;
     margin: 0.5rem 0 !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 }
 
 .facility-days {
     color: #C41E3A !important;
-    font-size: 0.9rem !important;
-    margin: 0.5rem 0 !important;
-    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    margin: 0.75rem 0 0 !important;
+    font-weight: 600 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
 }
 
-/* About Section */
+/* About Section - Light Background */
 .about-section {
-    background: #f5f5f5 !important;
+    background: #f9fafb !important;
+    padding: 5rem 0 !important;
 }
 
 .about-section h2 {
-    font-size: 3.5rem !important;
-    font-weight: 900 !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
 }
 
 .about-features .feature {
-    background: #1a1a1a !important;
-    color: #ffffff !important;
-    border-top: 4px solid #C41E3A !important;
-    border-radius: 0 !important;
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    border-top: 3px solid #C41E3A !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
 }
 
 .feature span {
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
 }
 
-/* Contact Section - Dark */
+/* Contact Section - Clean */
 .contact-section {
-    background: #1a1a1a !important;
-    color: #ffffff !important;
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    padding: 5rem 0 !important;
 }
 
 .contact-section h2 {
-    color: #ffffff !important;
-    font-size: 3.5rem !important;
-    font-weight: 900 !important;
+    color: #1a1a1a !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
 }
 
 .contact-section p {
-    color: #cccccc !important;
+    color: #6b7280 !important;
 }
 
 .contact-item {
-    background: #2d2d2d !important;
-    border-left: 4px solid #C41E3A !important;
-    border-radius: 0 !important;
+    background: #f9fafb !important;
+    border-left: 3px solid #C41E3A !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
 }
 
 .contact-item strong {
-    color: #C41E3A !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
+    color: #1a1a1a !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
 }
 
 .contact-item a {
-    color: #ffffff !important;
-    font-weight: 700 !important;
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+    transition: color 0.2s ease !important;
 }
 
 .contact-item a:hover {
     color: #C41E3A !important;
 }
 
-/* Footer - Dark & Bold */
+/* Footer - Light */
 .footer {
-    background: #1a1a1a !important;
-    border-top: 3px solid #C41E3A !important;
-    color: #ffffff !important;
+    background: #f9fafb !important;
+    border-top: 1px solid #e5e7eb !important;
+    color: #1a1a1a !important;
+    padding: 3rem 0 !important;
 }
 
 .footer-logo p {
-    color: #808080 !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
+    color: #6b7280 !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
 }
 
 .footer-links a {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    transition: color 0.2s ease !important;
 }
 
 .footer-links a:hover {
@@ -313,31 +361,80 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-bottom {
-    color: #808080 !important;
-    border-top: 1px solid #2d2d2d !important;
+    color: #9ca3af !important;
+    border-top: 1px solid #e5e7eb !important;
+    margin-top: 2rem !important;
+    padding-top: 1.5rem !important;
 }
 
-/* Remove All Rounded Corners */
+/* Rounded Corners Throughout */
 input, select, textarea, button, .btn, .card, .form-control {
-    border-radius: 0 !important;
+    border-radius: 10px !important;
 }
 
-/* Bold Everything */
-strong, b {
-    font-weight: 800 !important;
+/* Banner - Clean Style */
+.visitor-info-banner {
+    background: #fef2f2 !important;
+    border-left: 4px solid #C41E3A !important;
+}
+
+.banner-content {
+    color: #1a1a1a !important;
+}
+
+.banner-button {
+    background: #C41E3A !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+.banner-button:hover {
+    background: #a01830 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Spacing Improvements */
+section {
+    padding: 4rem 0 !important;
+}
+
+.container {
+    max-width: 1200px !important;
+    padding: 0 2rem !important;
+}
+
+/* Price Calculator */
+.price-calculator {
+    background: #f9fafb !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.price-breakdown {
+    border-top: 2px solid #e5e7eb !important;
+    padding-top: 1rem !important;
+}
+
+.total-price {
+    color: #C41E3A !important;
+    font-weight: 700 !important;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.8rem !important;
+        font-size: 2.25rem !important;
     }
-    
-    .hero-title .highlight {
-        font-size: 2.2rem !important;
-    }
-    
+
     .section-header h2 {
-        font-size: 2.5rem !important;
+        font-size: 2rem !important;
+    }
+
+    .container {
+        padding: 0 1.5rem !important;
     }
 }
