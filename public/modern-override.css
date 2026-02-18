@@ -1,44 +1,48 @@
 /* ==========================================
-   JCXPRESS CLEAN MODERN DESIGN
-   Minimalist, Bright, Apple/Stripe-inspired
+   JCXPRESS - EDITORIAL/MAGAZINE STYLE
+   Split-screen, Angular, Typography-focused
+   NO CARDS - Completely Different from weconnectfam
    ========================================== */
 
-/* Base Typography - Clean & Readable */
+/* Base - Clean Typography */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     font-weight: 400;
-    color: #1a1a1a !important;
-    line-height: 1.6 !important;
+    color: #0a0a0a !important;
+    line-height: 1.7 !important;
     background: #ffffff !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 700 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 800 !important;
     text-transform: none !important;
-    letter-spacing: -0.5px !important;
-    color: #1a1a1a !important;
+    letter-spacing: -1.5px !important;
+    color: #0a0a0a !important;
+    line-height: 1.1 !important;
 }
 
-/* Clean Navbar - Light & Simple */
+/* Navbar - Minimal Line Style */
 .navbar {
     background: #ffffff !important;
-    border-bottom: 1px solid #e5e7eb !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
-    padding: 1rem 0 !important;
+    border-bottom: 2px solid #0a0a0a !important;
+    box-shadow: none !important;
+    padding: 1.5rem 0 !important;
 }
 
 .nav-link {
-    color: #4b5563 !important;
-    font-weight: 500 !important;
+    color: #0a0a0a !important;
+    font-weight: 600 !important;
     text-transform: none !important;
     letter-spacing: 0 !important;
-    font-size: 0.95rem !important;
-    transition: color 0.2s ease !important;
+    font-size: 0.9rem !important;
+    transition: opacity 0.2s ease !important;
+    text-decoration: none !important;
 }
 
 .nav-link:hover {
-    color: #C41E3A !important;
+    opacity: 0.5 !important;
+    color: #0a0a0a !important;
 }
 
 .nav-link::after {
@@ -46,247 +50,296 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .admin-login-button {
-    background: #f3f4f6 !important;
-    border-radius: 8px !important;
-    font-size: 1.2rem !important;
-    padding: 0.5rem 0.75rem !important;
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    font-size: 1rem !important;
+    padding: 0.5rem 1rem !important;
     border: none !important;
-    transition: background 0.2s ease !important;
+    font-weight: 600 !important;
 }
 
 .admin-login-button:hover {
-    background: #e5e7eb !important;
+    background: #C41E3A !important;
 }
 
-/* Hero - Bright & Spacious */
+/* Hero - Split Screen Style */
 .hero {
-    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%) !important;
-    padding: 120px 0 80px !important;
+    background: #ffffff !important;
+    padding: 80px 0 60px !important;
+    border-bottom: 2px solid #0a0a0a !important;
 }
 
 .hero-title {
-    font-size: 3.5rem !important;
-    font-weight: 700 !important;
-    color: #1a1a1a !important;
+    font-size: 4.5rem !important;
+    font-weight: 900 !important;
+    color: #0a0a0a !important;
     text-transform: none !important;
-    letter-spacing: -2px !important;
-    line-height: 1.1 !important;
-    margin-bottom: 1.5rem !important;
+    letter-spacing: -3px !important;
+    line-height: 0.95 !important;
+    margin-bottom: 2rem !important;
 }
 
 .hero-title .highlight {
     color: #C41E3A !important;
     font-size: inherit !important;
+    display: block !important;
 }
 
 .hero-description {
-    color: #6b7280 !important;
-    font-size: 1.125rem !important;
+    color: #0a0a0a !important;
+    font-size: 1.1rem !important;
     font-weight: 400 !important;
-    max-width: 600px !important;
-    margin: 0 auto 2rem !important;
+    max-width: 500px !important;
+    line-height: 1.6 !important;
 }
 
 .hero-description:first-of-type {
-    color: #9ca3af !important;
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
-    letter-spacing: 1px !important;
+    color: #C41E3A !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 2px !important;
     text-transform: uppercase !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 1.5rem !important;
 }
 
-/* Modern Buttons - Rounded & Clean */
+/* Buttons - Square & Bold */
 .btn {
-    border-radius: 12px !important;
-    padding: 0.875rem 2rem !important;
-    font-weight: 600 !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    font-size: 1rem !important;
+    border-radius: 0 !important;
+    padding: 1rem 2.5rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.85rem !important;
     transition: all 0.2s ease !important;
-    border: none !important;
+    border: 2px solid #0a0a0a !important;
 }
 
 .btn-primary {
     background: #C41E3A !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.25) !important;
+    border-color: #C41E3A !important;
 }
 
 .btn-primary:hover {
-    background: #a01830 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 16px rgba(196, 30, 58, 0.3) !important;
+    background: #0a0a0a !important;
+    border-color: #0a0a0a !important;
 }
 
 .btn-outline {
     background: transparent !important;
-    color: #1a1a1a !important;
-    border: 2px solid #e5e7eb !important;
-    box-shadow: none !important;
+    color: #0a0a0a !important;
+    border: 2px solid #0a0a0a !important;
 }
 
 .btn-outline:hover {
-    background: #f9fafb !important;
-    border-color: #d1d5db !important;
+    background: #0a0a0a !important;
+    color: #ffffff !important;
 }
 
-/* Stats - Clean Numbers */
+/* Stats - Inline Style */
 .stat-number {
-    font-size: 3rem !important;
-    font-weight: 700 !important;
+    font-size: 3.5rem !important;
+    font-weight: 900 !important;
     color: #C41E3A !important;
+    letter-spacing: -2px !important;
 }
 
 .stat-label {
-    color: #6b7280 !important;
+    color: #0a0a0a !important;
     font-weight: 500 !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    font-size: 0.875rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.75rem !important;
 }
 
-/* Section Headers - Minimal & Clean */
+/* Section Headers - Editorial Style */
+.section-header {
+    border-left: 4px solid #0a0a0a !important;
+    padding-left: 2rem !important;
+    margin-bottom: 3rem !important;
+}
+
 .section-header h2 {
-    font-size: 2.5rem !important;
-    font-weight: 700 !important;
+    font-size: 3rem !important;
+    font-weight: 900 !important;
     text-transform: none !important;
-    letter-spacing: -1px !important;
-    color: #1a1a1a !important;
-    margin-bottom: 0.75rem !important;
+    letter-spacing: -2px !important;
+    color: #0a0a0a !important;
+    margin-bottom: 0.5rem !important;
 }
 
 .section-header p {
     font-weight: 400 !important;
-    color: #6b7280 !important;
-    font-size: 1.125rem !important;
+    color: #666666 !important;
+    font-size: 1rem !important;
 }
 
-/* Form - Clean & Spacious */
+/* Form - Side Panel Style */
 .booking-form {
     border-left: 4px solid #C41E3A !important;
-    border-radius: 16px !important;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06) !important;
-    background: #ffffff !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fafafa !important;
     padding: 2.5rem !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
 }
 
 .form-group label {
-    font-weight: 600 !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    font-size: 0.875rem !important;
-    color: #374151 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.75rem !important;
+    color: #0a0a0a !important;
     margin-bottom: 0.5rem !important;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    border-radius: 10px !important;
-    border: 1px solid #d1d5db !important;
-    background: #f9fafb !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: 2px solid #d1d5db !important;
+    background: transparent !important;
     font-weight: 400 !important;
-    padding: 0.75rem 1rem !important;
-    transition: all 0.2s ease !important;
+    padding: 0.75rem 0 !important;
+    transition: border-color 0.2s ease !important;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #C41E3A !important;
-    background: #ffffff !important;
-    box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1) !important;
+    border-bottom-color: #C41E3A !important;
+    background: transparent !important;
+    box-shadow: none !important;
     outline: none !important;
 }
 
-/* Facility Cards - Clean & Modern */
+/* Facilities - LIST STYLE (NO CARDS!) */
+.facilities-grid {
+    display: block !important;
+    padding: 0 !important;
+}
+
 .facility-card {
-    background: #ffffff !important;
-    border-left: 4px solid #C41E3A !important;
-    border-radius: 16px !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
-    transition: all 0.3s ease !important;
-    padding: 1.5rem !important;
+    background: transparent !important;
+    border-left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 2rem 0 !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    transition: all 0.2s ease !important;
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 2rem !important;
+    align-items: start !important;
 }
 
 .facility-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    transform: none !important;
+    padding-left: 1rem !important;
+    border-left: 4px solid #C41E3A !important;
+}
+
+.facility-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
 }
 
 .facility-header h3 {
-    color: #1a1a1a !important;
-    font-weight: 700 !important;
+    color: #0a0a0a !important;
+    font-weight: 800 !important;
     text-transform: none !important;
     letter-spacing: -0.5px !important;
-    font-size: 1.25rem !important;
-    margin-bottom: 0.25rem !important;
+    font-size: 1.5rem !important;
+    margin: 0 !important;
 }
 
 .facility-location {
-    color: #9ca3af !important;
+    color: #666666 !important;
     font-weight: 500 !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    font-size: 0.875rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.75rem !important;
+}
+
+.facility-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: flex-end !important;
+    text-align: right !important;
 }
 
 .facility-status {
-    background: #fef2f2 !important;
+    background: transparent !important;
     color: #C41E3A !important;
-    font-weight: 600 !important;
+    font-weight: 800 !important;
     text-transform: none !important;
     letter-spacing: 0 !important;
-    border-radius: 8px !important;
-    padding: 0.5rem 1rem !important;
-    display: inline-block !important;
-    font-size: 0.875rem !important;
-    margin-top: 1rem !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    font-size: 1.25rem !important;
+    margin: 0 !important;
 }
 
 .facility-address {
-    color: #6b7280 !important;
-    font-size: 0.875rem !important;
-    margin: 0.75rem 0 !important;
-    line-height: 1.5 !important;
+    color: #666666 !important;
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
 }
 
 .facility-service {
-    color: #4b5563 !important;
-    font-size: 0.875rem !important;
-    margin: 0.5rem 0 !important;
+    color: #0a0a0a !important;
+    font-size: 0.85rem !important;
+    margin: 0 !important;
     font-weight: 500 !important;
 }
 
 .facility-days {
-    color: #C41E3A !important;
-    font-size: 0.8rem !important;
-    margin: 0.75rem 0 0 !important;
+    color: #0a0a0a !important;
+    font-size: 0.75rem !important;
+    margin: 0.5rem 0 0 !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
+    letter-spacing: 1px !important;
 }
 
-/* About Section - Light Background */
+/* About Section - Diagonal Split */
 .about-section {
-    background: #f9fafb !important;
+    background: #fafafa !important;
     padding: 5rem 0 !important;
+    position: relative !important;
 }
 
 .about-section h2 {
-    font-size: 2.5rem !important;
-    font-weight: 700 !important;
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+}
+
+.about-features {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0 !important;
 }
 
 .about-features .feature {
-    background: #ffffff !important;
-    color: #1a1a1a !important;
-    border-top: 3px solid #C41E3A !important;
-    border-radius: 12px !important;
-    padding: 1.5rem !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    background: transparent !important;
+    color: #0a0a0a !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+    border-left: 2px solid #e5e7eb !important;
+    padding: 2rem !important;
+    box-shadow: none !important;
+}
+
+.about-features .feature:first-child {
+    border-left: none !important;
 }
 
 .feature span {
@@ -294,38 +347,45 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: none !important;
 }
 
-/* Contact Section - Clean */
+/* Contact Section - Grid Layout */
 .contact-section {
     background: #ffffff !important;
-    color: #1a1a1a !important;
+    color: #0a0a0a !important;
     padding: 5rem 0 !important;
+    border-top: 2px solid #0a0a0a !important;
 }
 
 .contact-section h2 {
-    color: #1a1a1a !important;
-    font-size: 2.5rem !important;
-    font-weight: 700 !important;
+    color: #0a0a0a !important;
+    font-size: 3rem !important;
+    font-weight: 900 !important;
 }
 
 .contact-section p {
-    color: #6b7280 !important;
+    color: #666666 !important;
 }
 
 .contact-item {
-    background: #f9fafb !important;
-    border-left: 3px solid #C41E3A !important;
-    border-radius: 12px !important;
+    background: transparent !important;
+    border-left: 2px solid #e5e7eb !important;
+    border-radius: 0 !important;
     padding: 1.5rem !important;
 }
 
+.contact-item:hover {
+    border-left-color: #C41E3A !important;
+}
+
 .contact-item strong {
-    color: #1a1a1a !important;
-    font-weight: 600 !important;
-    text-transform: none !important;
+    color: #0a0a0a !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 1px !important;
 }
 
 .contact-item a {
-    color: #4b5563 !important;
+    color: #0a0a0a !important;
     font-weight: 500 !important;
     transition: color 0.2s ease !important;
 }
@@ -334,69 +394,72 @@ h1, h2, h3, h4, h5, h6 {
     color: #C41E3A !important;
 }
 
-/* Footer - Light */
+/* Footer - Minimal */
 .footer {
-    background: #f9fafb !important;
-    border-top: 1px solid #e5e7eb !important;
-    color: #1a1a1a !important;
+    background: #0a0a0a !important;
+    border-top: none !important;
+    color: #ffffff !important;
     padding: 3rem 0 !important;
 }
 
 .footer-logo p {
-    color: #6b7280 !important;
-    font-weight: 500 !important;
+    color: #999999 !important;
+    font-weight: 400 !important;
     text-transform: none !important;
 }
 
 .footer-links a {
-    color: #4b5563 !important;
+    color: #ffffff !important;
     font-weight: 500 !important;
     text-transform: none !important;
     letter-spacing: 0 !important;
-    transition: color 0.2s ease !important;
+    transition: opacity 0.2s ease !important;
 }
 
 .footer-links a:hover {
-    color: #C41E3A !important;
+    opacity: 0.6 !important;
 }
 
 .footer-bottom {
-    color: #9ca3af !important;
-    border-top: 1px solid #e5e7eb !important;
+    color: #666666 !important;
+    border-top: 1px solid #333333 !important;
     margin-top: 2rem !important;
     padding-top: 1.5rem !important;
 }
 
-/* Rounded Corners Throughout */
+/* NO Rounded Corners - Sharp Edges */
 input, select, textarea, button, .btn, .card, .form-control {
-    border-radius: 10px !important;
+    border-radius: 0 !important;
 }
 
-/* Banner - Clean Style */
+/* Banner - Sidebar Style */
 .visitor-info-banner {
-    background: #fef2f2 !important;
+    background: #fafafa !important;
     border-left: 4px solid #C41E3A !important;
+    padding: 2rem !important;
 }
 
 .banner-content {
-    color: #1a1a1a !important;
+    color: #0a0a0a !important;
 }
 
 .banner-button {
-    background: #C41E3A !important;
+    background: #0a0a0a !important;
     color: #ffffff !important;
-    border-radius: 10px !important;
+    border-radius: 0 !important;
     padding: 0.75rem 1.5rem !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 1px !important;
+    transition: background 0.2s ease !important;
 }
 
 .banner-button:hover {
-    background: #a01830 !important;
-    transform: translateY(-2px) !important;
+    background: #C41E3A !important;
 }
 
-/* Spacing Improvements */
+/* Strong Grid System */
 section {
     padding: 4rem 0 !important;
 }
@@ -406,12 +469,13 @@ section {
     padding: 0 2rem !important;
 }
 
-/* Price Calculator */
+/* Price Calculator - Inline */
 .price-calculator {
-    background: #f9fafb !important;
-    border-radius: 12px !important;
+    background: transparent !important;
+    border-radius: 0 !important;
     padding: 1.5rem !important;
-    border: 1px solid #e5e7eb !important;
+    border: none !important;
+    border-left: 2px solid #e5e7eb !important;
 }
 
 .price-breakdown {
@@ -421,13 +485,15 @@ section {
 
 .total-price {
     color: #C41E3A !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
+    font-size: 1.5rem !important;
 }
 
-/* Responsive */
+/* Responsive - Stack on Mobile */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.25rem !important;
+        font-size: 2.5rem !important;
+        letter-spacing: -1.5px !important;
     }
 
     .section-header h2 {
@@ -436,5 +502,28 @@ section {
 
     .container {
         padding: 0 1.5rem !important;
+    }
+
+    .facility-card {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .facility-info {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+
+    .section-header {
+        padding-left: 1rem !important;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr !important;
+    }
+
+    .about-features .feature {
+        border-left: none !important;
+        border-top: 2px solid #e5e7eb !important;
     }
 }
