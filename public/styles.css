@@ -101,7 +101,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #ffffff 0%, #ffffff 30%, #ffd0d8 65%, #ffaab8 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #ffe0e5 35%, #ffaab8 60%, #C41E3A 100%);
     color: #111111;
 }
 
@@ -1396,7 +1396,9 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 /* Admin Interface Styles */
 .admin-login-button {
-    background: transparent;
+    background: transparent !important;
+    -webkit-appearance: none;
+    appearance: none;
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
@@ -1407,6 +1409,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     margin-left: 1rem;
     box-shadow: none;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .admin-login-button:hover {
