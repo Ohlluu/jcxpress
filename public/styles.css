@@ -101,7 +101,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(to bottom right, #ffffff 25%, #ffb3be 65%, #C41E3A 100%);
+    background: #ffffff;
     color: #111111;
 }
 
