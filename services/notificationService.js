@@ -60,7 +60,7 @@ Date: ${formattedDate}
 Pickup: ${booking.pickup_location}
 Guests: ${booking.guests || 1}
 
-View: weconnectfam.com`;
+View: jcxpress.com`;
 
     try {
         // Format phone numbers to E.164
@@ -114,7 +114,7 @@ async function sendCustomerConfirmation(booking) {
     const depositPaid = (booking.deposit_amount / 100).toFixed(2);
     const balanceDue = (booking.balance_due / 100).toFixed(2);
 
-    const message = `✅ WE Connect Families - Booking Confirmed!
+    const message = `✅ JCXPRESS - Booking Confirmed!
 
 Booking #${booking.id}
 ${booking.facility}
@@ -128,7 +128,7 @@ Balance Due on Trip: $${balanceDue}
 
 ⚠️ IMPORTANT: Remaining balance must be paid in CASH on the day of your trip.
 
-Questions? Call (646) 226-2433`;
+Questions? Call (917) 244-5352`;
 
     try {
         const result = await twilioClient.messages.create({

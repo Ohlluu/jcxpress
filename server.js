@@ -94,6 +94,7 @@ db.serialize(() => {
     db.run(`ALTER TABLE bookings ADD COLUMN children INTEGER DEFAULT 0`, () => {});
     db.run(`ALTER TABLE bookings ADD COLUMN total_cost INTEGER`, () => {});
     db.run(`ALTER TABLE bookings ADD COLUMN balance_due INTEGER`, () => {});
+    db.run(`ALTER TABLE bookings ADD COLUMN checked_in_at DATETIME`, () => {});
 
     // Admin sessions table
     db.run(`CREATE TABLE IF NOT EXISTS admin_sessions (
@@ -108,6 +109,61 @@ db.serialize(() => {
 
 // Make database available to routes
 app.locals.db = db;
+
+// Customer check-in endpoint
+app.post('/api/checkin', (req, res) => {
+    const db = req.app.locals.db;
+    const { name } = req.body;
+
+    if (!name || name.trim() === '') {
+        return res.status(400).json({ error: 'Full name is required' });
+    }
+
+    const normalizedName = name.trim().toLowerCase();
+
+    db.all(`SELECT * FROM bookings WHERE status = 'confirmed'`, (err, bookings) => {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to look up booking' });
+        }
+
+        const booking = bookings.find(b =>
+            b.name.toLowerCase().includes(normalizedName) ||
+            normalizedName.includes(b.name.toLowerCase())
+        );
+
+        if (!booking) {
+            return res.status(404).json({ error: 'Booking not found. Please check your name and try again.' });
+        }
+
+        if (booking.checked_in_at) {
+            return res.json({
+                success: true,
+                message: `Welcome back, ${booking.name}! You already checked in.`,
+                booking
+            });
+        }
+
+        db.run(`UPDATE bookings SET checked_in_at = CURRENT_TIMESTAMP WHERE id = ?`, [booking.id], function(updateErr) {
+            if (updateErr) {
+                return res.status(500).json({ error: 'Failed to record check-in' });
+            }
+
+            console.log(`✅ Check-in: ${booking.name} for ${booking.facility}`);
+
+            res.json({
+                success: true,
+                message: `Check-in successful! Welcome, ${booking.name}. Have a meaningful visit.`,
+                booking: {
+                    id: booking.id,
+                    name: booking.name,
+                    facility: booking.facility,
+                    visit_date: booking.visit_date,
+                    pickup_location: booking.pickup_location
+                }
+            });
+        });
+    });
+});
 
 // Error handling middleware
 app.use((error, req, res, next) => {
@@ -124,7 +180,7 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 WE Connect Families server running on http://localhost:${PORT}`);
+    console.log(`🚀 JCXPRESS server running on http://localhost:${PORT}`);
     console.log(`📱 Admin password: ${process.env.ADMIN_PASSWORD}`);
     console.log(`📊 Database: SQLite (database.db)`);
 });
