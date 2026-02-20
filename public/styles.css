@@ -114,9 +114,9 @@ body {
 }
 
 .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Dancing Script', cursive;
     font-size: clamp(5.5rem, 15vw, 12rem);
-    font-weight: 400;
+    font-weight: 700;
     color: #111111;
     line-height: 0.9;
     letter-spacing: 4px;
