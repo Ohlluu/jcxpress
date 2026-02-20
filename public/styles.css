@@ -110,12 +110,12 @@ body {
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(5rem, 13vw, 10rem);
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5.5rem, 15vw, 12rem);
+    font-weight: 400;
     color: #111111;
-    line-height: 0.95;
-    letter-spacing: -3px;
+    line-height: 0.9;
+    letter-spacing: 4px;
     margin-bottom: 0.6rem;
 }
 
