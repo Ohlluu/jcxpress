@@ -101,7 +101,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #ffe4e8 80%, #ffc8d0 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 30%, #ffd0d8 65%, #ffaab8 100%);
     color: #111111;
 }
 
