@@ -77,22 +77,6 @@ body {
     width: 100%;
 }
 
-.nav-call-btn {
-    background: #C41E3A;
-    color: #ffffff;
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s ease;
-    white-space: nowrap;
-}
-
-.nav-call-btn:hover {
-    background: #a51830;
-}
-
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -118,71 +102,65 @@ body {
 }
 
 .hero-container {
-    max-width: 780px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 120px 1.5rem 80px;
+    padding: 100px 2rem 60px;
     text-align: center;
     width: 100%;
 }
 
 .hero-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(2.4rem, 5.5vw, 4rem);
-    font-weight: 800;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 13vw, 10rem);
+    font-weight: 700;
     color: #111111;
-    margin-bottom: 1.25rem;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 0.6rem;
+}
+
+.hero-title-sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.9rem, 2.2vw, 1.35rem);
+    color: #9ca3af;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+    margin-bottom: 0;
 }
 
 .hero-description {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #6b7280;
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
+    max-width: 480px;
+    margin: 1.75rem auto 2rem;
     line-height: 1.75;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1.2rem 2.5rem;
-    font-size: 1rem;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 50px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
     cursor: pointer;
-    border: none;
     font-family: inherit;
-    position: relative;
-    overflow: hidden;
-    letter-spacing: 0.5px;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-    transition: left 0.6s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
+    letter-spacing: 0.2px;
 }
 
 .btn-primary {
@@ -2429,10 +2407,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     .hero-stats {
         gap: 2.5rem;
     }
-
-    .nav-call-btn {
-        display: none;
-    }
     
     .about-features {
         flex-direction: column;
@@ -2461,11 +2435,11 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     }
     
     .hero-container {
-        padding: 100px 1rem 60px;
+        padding: 90px 1.25rem 50px;
     }
 
     .hero-title {
-        letter-spacing: -0.5px;
+        letter-spacing: -1px;
     }
 
     .hero-stats {
