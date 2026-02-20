@@ -1396,20 +1396,19 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 /* Admin Interface Styles */
 .admin-login-button {
-    background: none !important;
-    background-color: transparent !important;
-    -webkit-appearance: none !important;
-    appearance: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-    font-size: 1.2rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
     cursor: pointer;
-    padding: 0.5rem;
-    margin-left: 1rem;
-    opacity: 0.5;
+    padding: 0.4rem;
+    margin-left: 0.5rem;
+    opacity: 0.35;
     transition: opacity 0.3s ease;
     -webkit-tap-highlight-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    color: #374151;
 }
 
 .admin-login-button:hover {
