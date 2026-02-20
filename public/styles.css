@@ -25,52 +25,40 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(129, 212, 217, 0.2);
-    box-shadow: 0 2px 20px rgba(13, 183, 187, 0.08);
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 1.5rem;
+    padding: 0.9rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.nav-logo span {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
-    font-weight: 600;
-    background: linear-gradient(135deg, #C41E3A, #E53935);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
-}
-
 .nav-menu {
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
 .nav-link {
     text-decoration: none;
-    color: #718096;
+    color: #374151;
     font-weight: 500;
-    font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
 }
 
 .nav-link:hover {
     color: #C41E3A;
-    transform: translateY(-1px);
 }
 
 .nav-link::after {
@@ -79,15 +67,30 @@ body {
     width: 0;
     height: 2px;
     bottom: -2px;
-    left: 50%;
-    background: linear-gradient(90deg, #C41E3A, #E53935);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateX(-50%);
+    left: 0;
+    background: #C41E3A;
+    transition: width 0.25s ease;
     border-radius: 2px;
 }
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.nav-call-btn {
+    background: #C41E3A;
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-call-btn:hover {
+    background: #a51830;
 }
 
 .nav-toggle {
@@ -98,10 +101,10 @@ body {
 
 .bar {
     width: 25px;
-    height: 3px;
-    background: #C41E3A;
+    height: 2.5px;
+    background: #374151;
     margin: 3px 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     border-radius: 2px;
 }
 
@@ -110,88 +113,35 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #C41E3A 0%, #E53935 25%, #EF5350 50%, #FFCDD2 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="rgba(255,255,255,0.08)"><circle cx="40" cy="40" r="2"/><circle cx="20" cy="20" r="1"/><circle cx="60" cy="60" r="1.5"/></g></svg>') repeat;
-    opacity: 0.4;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    background: #ffffff;
+    color: #111111;
 }
 
 .hero-container {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
+    max-width: 780px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 120px 1.5rem 80px;
     text-align: center;
+    width: 100%;
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.hero-title .highlight {
-    color: #FFE5B4;
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-    text-shadow: 0 2px 10px rgba(255, 229, 180, 0.3);
-}
-
-.hero-spanish-notice {
-    background: linear-gradient(135deg, #FFE5B4, #FFD700);
-    color: #8B4513;
-    font-size: 1.1rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    border: 2px solid #FFD700;
-    margin: 0 auto 1.5rem;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-    text-align: center;
-    max-width: fit-content;
-    animation: subtle-pulse 2s ease-in-out infinite;
-}
-
-@keyframes subtle-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 800;
+    color: #111111;
+    margin-bottom: 1.25rem;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
 }
 
 .hero-description {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     font-weight: 400;
-    max-width: 650px;
+    color: #6b7280;
+    max-width: 520px;
     margin: 0 auto 2.5rem;
-    opacity: 0.97;
-    line-height: 1.7;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.75;
 }
 
 .hero-buttons {
@@ -236,42 +186,52 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #C41E3A, #E53935, #EF5350);
+    background: #C41E3A;
     color: white;
-    box-shadow: 0 8px 30px rgba(13, 183, 187, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid #C41E3A;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(13, 183, 187, 0.4);
-    background: linear-gradient(135deg, #0CA5A9, #47C4C7, #7DD1D6);
+    background: #a51830;
+    border-color: #a51830;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+}
+
+.btn-call {
+    background: #ffffff;
+    color: #111111;
+    border: 2px solid #e5e7eb;
+}
+
+.btn-call:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .btn-outline {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
+    color: #111111;
+    border: 2px solid #e5e7eb;
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.6);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    background: #f9fafb;
+    border-color: #d1d5db;
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, #EF5350, #FFCDD2);
-    color: #2d3748;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: #f3f4f6;
+    color: #111111;
+    border: 2px solid #e5e7eb;
 }
 
 .btn-secondary:hover {
-    background: linear-gradient(135deg, #7DD1D6, #B3E3E5);
+    background: #e5e7eb;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(129, 212, 217, 0.3);
 }
 
 .btn-large {
@@ -290,8 +250,10 @@ body {
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 5rem;
     flex-wrap: wrap;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 3rem;
 }
 
 .stat {
@@ -300,19 +262,29 @@ body {
 
 .stat-number {
     display: block;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: 800;
-    color: #FFE5B4;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 10px rgba(255, 229, 180, 0.4);
-    font-family: 'Playfair Display', serif;
+    color: #111111;
+    margin-bottom: 0.3rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.stat-number.stat-script {
+    font-family: 'Dancing Script', cursive;
+    color: #C41E3A;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0;
 }
 
 .stat-label {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
 }
 
 /* Booking Section */
@@ -2454,12 +2426,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         grid-template-columns: 1fr;
     }
     
-    .hero {
-        padding-top: 100px;
-    }
-    
     .hero-stats {
-        gap: 2rem;
+        gap: 2.5rem;
+    }
+
+    .nav-call-btn {
+        display: none;
     }
     
     .about-features {
@@ -2488,16 +2460,16 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         padding: 1rem;
     }
     
-    .hero {
-        padding-top: 120px;
+    .hero-container {
+        padding: 100px 1rem 60px;
     }
-    
+
     .hero-title {
-        font-size: 2.5rem;
+        letter-spacing: -0.5px;
     }
-    
-    .hero-description {
-        font-size: 1.1rem;
+
+    .hero-stats {
+        gap: 2rem;
     }
     
     .booking-form,
