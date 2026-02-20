@@ -35,31 +35,11 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Smooth scrolling for navigation links with special handling for Check In
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const href = this.getAttribute('href');
-
-        // Special handling for Check In navigation
-        if (href === '#check-in-section') {
-            const isMobile = window.innerWidth <= 768;
-
-            if (isMobile) {
-                // On mobile: scroll to the check-in section
-                const target = document.querySelector('#check-in-section');
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            } else {
-                // On desktop: scroll to booking section (where check-in box is visible)
-                const bookingSection = document.querySelector('#book');
-                if (bookingSection) {
-                    bookingSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-            return;
-        }
 
         const target = document.querySelector(href);
         if (target) {
@@ -88,7 +68,6 @@ window.addEventListener('scroll', () => {
 
 // Form handling
 const bookingForm = document.getElementById('booking-form');
-const checkinForm = document.getElementById('checkin-form');
 
 // ===========================================
 // PRICE CALCULATOR LOGIC
@@ -293,56 +272,11 @@ if (bookingForm) {
 
         } catch (error) {
             console.error('Booking error:', error);
-            showPaymentError(error.message || 'Payment failed. Please try again or call (917) 244-5352.');
+            showPaymentError(error.message || 'Payment failed. Please try again or call (646) 226-2433.');
             showNotification('Booking failed: ' + error.message, 'error');
         } finally {
             buttonText.textContent = originalText;
             spinner.style.display = 'none';
-            submitBtn.disabled = false;
-        }
-    });
-}
-
-// Check-in form submission
-if (checkinForm) {
-    checkinForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById('checkin-name').value.trim();
-
-        if (!name) {
-            showNotification('Please enter your full name', 'error');
-            return;
-        }
-
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Checking In...';
-        submitBtn.disabled = true;
-
-        try {
-            const response = await fetch(`${API_BASE}/api/checkin`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name })
-            });
-
-            const data = await response.json();
-
-            if (response.ok && data.success) {
-                showNotification(data.message, 'success');
-                document.getElementById('checkin-name').value = '';
-            } else {
-                showNotification(data.error || 'Check-in failed. Please try again.', 'error');
-            }
-
-        } catch (error) {
-            console.error('Check-in error:', error);
-            showNotification('Check-in failed. Please try again or contact us.', 'error');
-        } finally {
-            submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }
     });
@@ -435,28 +369,28 @@ function isValidPhone(phone) {
 
 // Booking storage and management
 function storeBooking(booking) {
-    let bookings = JSON.parse(localStorage.getItem('jcx-bookings') || '[]');
+    let bookings = JSON.parse(localStorage.getItem('wcf-bookings') || '[]');
     bookings.push(booking);
-    localStorage.setItem('jcx-bookings', JSON.stringify(bookings));
+    localStorage.setItem('wcf-bookings', JSON.stringify(bookings));
 }
 
 function getBooking(bookingId) {
-    const bookings = JSON.parse(localStorage.getItem('jcx-bookings') || '[]');
+    const bookings = JSON.parse(localStorage.getItem('wcf-bookings') || '[]');
     return bookings.find(booking => booking.id === bookingId);
 }
 
 function updateBookingStatus(bookingId, status) {
-    let bookings = JSON.parse(localStorage.getItem('jcx-bookings') || '[]');
+    let bookings = JSON.parse(localStorage.getItem('wcf-bookings') || '[]');
     const bookingIndex = bookings.findIndex(booking => booking.id === bookingId);
     
     if (bookingIndex !== -1) {
         bookings[bookingIndex].status = status;
-        localStorage.setItem('jcx-bookings', JSON.stringify(bookings));
+        localStorage.setItem('wcf-bookings', JSON.stringify(bookings));
     }
 }
 
 function getAllBookings() {
-    return JSON.parse(localStorage.getItem('jcx-bookings') || '[]');
+    return JSON.parse(localStorage.getItem('wcf-bookings') || '[]');
 }
 
 // Owner notification system
@@ -485,7 +419,7 @@ function formatOwnerNotification(booking) {
 }
 
 function storeNotification(notification) {
-    let notifications = JSON.parse(localStorage.getItem('jcx-notifications') || '[]');
+    let notifications = JSON.parse(localStorage.getItem('wcf-notifications') || '[]');
     notifications.unshift(notification);
     
     // Keep only last 100 notifications
@@ -493,17 +427,33 @@ function storeNotification(notification) {
         notifications = notifications.slice(0, 100);
     }
     
-    localStorage.setItem('jcx-notifications', JSON.stringify(notifications));
+    localStorage.setItem('wcf-notifications', JSON.stringify(notifications));
 }
 
 
-// Early Morning Facilities Modal (Auburn, Cayuga, Elmira, Five Points, Marcy, Mid-State, Mohawk)
-const morningFacilityModal = document.getElementById('morning-facility-modal');
-const morningFacilityModalClose = document.getElementById('morning-facility-modal-close');
+// Facility Details Modal (Southern facilities)
+const facilityModal = document.getElementById('facility-modal');
+const facilityModalClose = document.getElementById('facility-modal-close');
 
-// Evening Facilities Modal (Attica, Groveland, Orleans, Wende, Wyoming)
-const eveningFacilityModal = document.getElementById('evening-facility-modal');
-const eveningFacilityModalClose = document.getElementById('evening-facility-modal-close');
+// Northern Facilities Modal
+const northernFacilityModal = document.getElementById('northern-facility-modal');
+const northernFacilityModalClose = document.getElementById('northern-facility-modal-close');
+
+// Central Facilities Modal
+const centralFacilityModal = document.getElementById('central-facility-modal');
+const centralFacilityModalClose = document.getElementById('central-facility-modal-close');
+
+// Western Facilities Modal
+const westernFacilityModal = document.getElementById('western-facility-modal');
+const westernFacilityModalClose = document.getElementById('western-facility-modal-close');
+
+// Sunday-only Facilities Modal
+const sundayOnlyModal = document.getElementById('sunday-only-facility-modal');
+const sundayOnlyModalClose = document.getElementById('sunday-only-facility-modal-close');
+
+// Otisville Facilities Modal Elements
+const otisvilleFacilityModal = document.getElementById('otisville-facility-modal');
+const otisvilleFacilityModalClose = document.getElementById('otisville-facility-modal-close');
 
 const facilityDetailsButtons = document.querySelectorAll('.facility-details-btn');
 
@@ -512,55 +462,145 @@ facilityDetailsButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
         const facility = button.getAttribute('data-facility');
-
-        // Early morning group
-        if (facility === 'auburn' || facility === 'cayuga' || facility === 'elmira' ||
-            facility === 'fivepoints' || facility === 'marcy' || facility === 'midstate' ||
-            facility === 'mohawk') {
-            morningFacilityModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        
+        // Show southern facilities modal
+        if (facility === 'coxsackie' || facility === 'greene' || facility === 'washington') {
+            facilityModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
         }
-        // Evening group
-        else if (facility === 'attica' || facility === 'groveland' || facility === 'orleans' ||
-                 facility === 'wende' || facility === 'wyoming') {
-            eveningFacilityModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        // Show northern facilities modal
+        else if (facility === 'clinton' || facility === 'altona' || facility === 'franklin' || 
+                 facility === 'barehill' || facility === 'upstate' || facility === 'adirondack' || facility === 'raybrook') {
+            northernFacilityModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+        // Show central facilities modal
+        else if (facility === 'mohawk' || facility === 'midstate' || facility === 'marcy') {
+            centralFacilityModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+        // Show western facilities modal
+        else if (facility === 'collins' || facility === 'lakeview') {
+            westernFacilityModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+        // Show Sunday-only facilities modal
+        else if (facility === 'gouverneur' || facility === 'riverview' || facility === 'capevincent') {
+            sundayOnlyModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+        // Show Otisville facilities modal
+        else if (facility === 'otisville') {
+            otisvilleFacilityModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
         }
     });
 });
 
-// Close morning facility modal when clicking X button
-if (morningFacilityModalClose) {
-    morningFacilityModalClose.addEventListener('click', () => {
-        morningFacilityModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+// Close southern facility modal when clicking X button
+if (facilityModalClose) {
+    facilityModalClose.addEventListener('click', () => {
+        facilityModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
     });
 }
 
-// Close evening facility modal when clicking X button
-if (eveningFacilityModalClose) {
-    eveningFacilityModalClose.addEventListener('click', () => {
-        eveningFacilityModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+// Close northern facility modal when clicking X button
+if (northernFacilityModalClose) {
+    northernFacilityModalClose.addEventListener('click', () => {
+        northernFacilityModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
     });
 }
 
-// Close morning facility modal when clicking outside of it
-if (morningFacilityModal) {
-    morningFacilityModal.addEventListener('click', (e) => {
-        if (e.target === morningFacilityModal) {
-            morningFacilityModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+// Close central facility modal when clicking X button
+if (centralFacilityModalClose) {
+    centralFacilityModalClose.addEventListener('click', () => {
+        centralFacilityModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    });
+}
+
+// Close western facility modal when clicking X button
+if (westernFacilityModalClose) {
+    westernFacilityModalClose.addEventListener('click', () => {
+        westernFacilityModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    });
+}
+
+// Close Sunday-only facility modal when clicking X button
+if (sundayOnlyModalClose) {
+    sundayOnlyModalClose.addEventListener('click', () => {
+        sundayOnlyModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    });
+}
+
+// Close Otisville facility modal when clicking X button
+if (otisvilleFacilityModalClose) {
+    otisvilleFacilityModalClose.addEventListener('click', () => {
+        otisvilleFacilityModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scroll
+    });
+}
+
+// Close southern facility modal when clicking outside of it
+if (facilityModal) {
+    facilityModal.addEventListener('click', (e) => {
+        if (e.target === facilityModal) {
+            facilityModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scroll
         }
     });
 }
 
-// Close evening facility modal when clicking outside of it
-if (eveningFacilityModal) {
-    eveningFacilityModal.addEventListener('click', (e) => {
-        if (e.target === eveningFacilityModal) {
-            eveningFacilityModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+// Close northern facility modal when clicking outside of it
+if (northernFacilityModal) {
+    northernFacilityModal.addEventListener('click', (e) => {
+        if (e.target === northernFacilityModal) {
+            northernFacilityModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+    });
+}
+
+// Close central facility modal when clicking outside of it
+if (centralFacilityModal) {
+    centralFacilityModal.addEventListener('click', (e) => {
+        if (e.target === centralFacilityModal) {
+            centralFacilityModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+    });
+}
+
+// Close western facility modal when clicking outside of it
+if (westernFacilityModal) {
+    westernFacilityModal.addEventListener('click', (e) => {
+        if (e.target === westernFacilityModal) {
+            westernFacilityModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+    });
+}
+
+// Close Sunday-only facility modal when clicking outside of it
+if (sundayOnlyModal) {
+    sundayOnlyModal.addEventListener('click', (e) => {
+        if (e.target === sundayOnlyModal) {
+            sundayOnlyModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+    });
+}
+
+// Close Otisville facility modal when clicking outside of it
+if (otisvilleFacilityModal) {
+    otisvilleFacilityModal.addEventListener('click', (e) => {
+        if (e.target === otisvilleFacilityModal) {
+            otisvilleFacilityModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scroll
         }
     });
 }
@@ -630,7 +670,7 @@ function showNotification(message, type = 'info') {
 
 // Animation on scroll
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.booking-form, .checkin-box, .facility-card, .about-content');
+    const elements = document.querySelectorAll('.booking-form, .facility-card, .about-content');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -759,14 +799,14 @@ function enhanceFormExperience() {
 
 // Initialize demo data
 function initializeDemoData() {
-    if (localStorage.getItem('jcx-bookings') === null) {
+    if (localStorage.getItem('wcf-bookings') === null) {
         const demoBookings = [
             {
-                id: 'JCX-001234',
+                id: 'WCF-001234',
                 name: 'Sarah Johnson',
                 email: 'sarah.j@email.com',
                 phone: '(555) 123-4567',
-                facility: 'Auburn Correctional Facility',
+                facility: 'Clinton Correctional Facility',
                 'visit-date': '2025-09-25',
                 visitors: '2',
                 notifications: 'sms',
@@ -774,11 +814,11 @@ function initializeDemoData() {
                 timestamp: new Date(Date.now() - 86400000).toISOString() // Yesterday
             },
             {
-                id: 'JCX-001235',
+                id: 'WCF-001235',
                 name: 'Michael Rodriguez',
                 email: 'mrod@email.com',
                 phone: '(555) 987-6543',
-                facility: 'Attica Correctional Facility',
+                facility: 'Washington Correctional Facility',
                 'visit-date': '2025-09-22',
                 visitors: '1',
                 notifications: 'email',
@@ -786,11 +826,11 @@ function initializeDemoData() {
                 timestamp: new Date(Date.now() - 172800000).toISOString() // 2 days ago
             },
             {
-                id: 'JCX-001236',
+                id: 'WCF-001236',
                 name: 'Jennifer Chen',
                 email: 'jchen@email.com',
                 phone: '(555) 456-7890',
-                facility: 'Elmira Correctional Facility',
+                facility: 'Coxsackie Correctional Facility',
                 'visit-date': '2025-09-28',
                 visitors: '3',
                 notifications: 'sms',
@@ -798,8 +838,8 @@ function initializeDemoData() {
                 timestamp: new Date().toISOString() // Today
             }
         ];
-
-        localStorage.setItem('jcx-bookings', JSON.stringify(demoBookings));
+        
+        localStorage.setItem('wcf-bookings', JSON.stringify(demoBookings));
     }
 }
 
@@ -980,12 +1020,20 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('keydown', (e) => {
     // Escape to close modals
     if (e.key === 'Escape') {
-        if (morningFacilityModal && morningFacilityModal.style.display === 'block') {
-            morningFacilityModal.style.display = 'none';
+        if (facilityModal && facilityModal.style.display === 'block') {
+            facilityModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-        if (eveningFacilityModal && eveningFacilityModal.style.display === 'block') {
-            eveningFacilityModal.style.display = 'none';
+        if (northernFacilityModal && northernFacilityModal.style.display === 'block') {
+            northernFacilityModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        if (centralFacilityModal && centralFacilityModal.style.display === 'block') {
+            centralFacilityModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        if (westernFacilityModal && westernFacilityModal.style.display === 'block') {
+            westernFacilityModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     }
@@ -1942,7 +1990,7 @@ function generatePrintTemplate(bookings) {
     <!DOCTYPE html>
     <html>
     <head>
-        <title>JCXPRESS - Booking Report</title>
+        <title>WE Connect Families - Booking Report</title>
         <style>
             body { font-family: Arial, sans-serif; margin: 20px; }
             .header { text-align: center; margin-bottom: 30px; }
@@ -1958,7 +2006,7 @@ function generatePrintTemplate(bookings) {
     </head>
     <body>
         <div class="header">
-            <h1>🚌 JCXPRESS</h1>
+            <h1>🚌 WE Connect Families</h1>
             <h2>Transportation Booking Report</h2>
             <p>Generated on: ${currentDate}</p>
             <p>Total Bookings: ${bookings.length}</p>
@@ -1984,7 +2032,7 @@ function generatePrintTemplate(bookings) {
     
     html += `
         <div style="margin-top: 30px; text-align: center; color: #666;">
-            <p>© JCXPRESS Transportation Services</p>
+            <p>© WE Connect Families Transportation Services</p>
         </div>
     </body>
     </html>
@@ -2008,4 +2056,4 @@ function getCurrentBookings() {
 
 console.log('🔐 Admin system initialized');
 console.log('📊 Database integration ready');
-console.log('🚀 JCXPRESS booking system loaded');
+console.log('🚀 WE Connect Families booking system loaded');
