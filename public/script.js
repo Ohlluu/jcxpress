@@ -1149,14 +1149,21 @@ optimizePerformance();
 // ADMIN SYSTEM
 // ==========================================
 
+// Hub definitions
+const HUB_FACILITIES = {
+    '1': ['Auburn Correctional Facility', 'Cayuga Correctional Facility', 'Five Points Correctional Facility', 'Elmira Correctional Facility'],
+    '2': ['Attica Correctional Facility', 'Groveland Correctional Facility', 'Wende Correctional Facility', 'Wyoming Correctional Facility', 'Orleans Correctional Facility'],
+    '3': ['Marcy Correctional Facility', 'Mid-State Correctional Facility', 'Mohawk Correctional Facility']
+};
+
 // Admin state
 let adminState = {
     isLoggedIn: false,
     sessionToken: null,
     bookings: [],
     currentFilter: 'all',
-    currentDateFilter: 'all', // Track date range filter
-    selectedVisitDate: null // Track specific date selected from calendar
+    currentHub: 'all',
+    currentDay: 'all'
 };
 
 // Admin DOM elements
@@ -1182,14 +1189,15 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', handleFilterChange);
 });
 
-// Date filter buttons
-document.querySelectorAll('.date-filter-btn').forEach(btn => {
-    btn.addEventListener('click', handleDateFilterChange);
+// Hub filter buttons
+document.querySelectorAll('.hub-filter-btn').forEach(btn => {
+    btn.addEventListener('click', handleHubFilterChange);
 });
 
-// Visit date picker and clear button
-document.getElementById('visit-date-filter')?.addEventListener('change', handleVisitDateSelection);
-document.getElementById('clear-date-filter')?.addEventListener('click', clearVisitDateFilter);
+// Day filter buttons
+document.querySelectorAll('.day-filter-btn').forEach(btn => {
+    btn.addEventListener('click', handleDayFilterChange);
+});
 
 // Admin action buttons
 document.getElementById('admin-logout')?.addEventListener('click', handleAdminLogout);
@@ -1425,42 +1433,26 @@ function displayBookings(bookings) {
         }
     }
 
-    // Filter bookings based on visit date (when customers want to travel)
-    // First check if a specific date is selected in the calendar
-    if (adminState.selectedVisitDate) {
+    // Filter by hub
+    if (adminState.currentHub !== 'all') {
+        const hubFacilities = HUB_FACILITIES[adminState.currentHub] || [];
+        filteredBookings = filteredBookings.filter(booking => hubFacilities.includes(booking.facility));
+    }
+
+    // Filter by day (Saturday or Sunday)
+    if (adminState.currentDay !== 'all') {
         filteredBookings = filteredBookings.filter(booking => {
             if (!booking.visit_date) return false;
-            return booking.visit_date === adminState.selectedVisitDate;
-        });
-    } else if (adminState.currentDateFilter !== 'all') {
-        // Use quick filters if no specific date selected
-        const today = dayjs().startOf('day');
-        const filter = adminState.currentDateFilter;
-
-        filteredBookings = filteredBookings.filter(booking => {
-            if (!booking.visit_date) return false;
-
-            // Parse visit date using dayjs (handles YYYY-MM-DD format properly)
-            const visitDate = dayjs(booking.visit_date);
-
-            // Upcoming trips (future dates only)
-            if (filter === 'upcoming') {
-                return visitDate.isSameOrAfter(today, 'day');
-            }
-
-            // Past trips
-            if (filter === 'past') {
-                return visitDate.isBefore(today, 'day');
-            }
-
+            const date = new Date(booking.visit_date + 'T00:00:00');
+            const dow = date.getDay();
+            if (adminState.currentDay === 'saturday') return dow === 6;
+            if (adminState.currentDay === 'sunday') return dow === 0;
             return true;
         });
     }
 
     if (filteredBookings.length === 0) {
-        const filterText = adminState.currentDateFilter !== 'all'
-            ? `${adminState.currentFilter} bookings in the selected date range`
-            : `${adminState.currentFilter} bookings`;
+        const filterText = `${adminState.currentFilter} bookings`;
         container.innerHTML = `
             <div class="no-bookings">
                 <h3>No ${filterText}</h3>
@@ -1575,73 +1567,19 @@ function handleFilterChange(e) {
     displayBookings(adminState.bookings);
 }
 
-// Handle date filter changes
-function handleDateFilterChange(e) {
-    const days = e.target.dataset.days;
-    adminState.currentDateFilter = days;
-
-    // Clear specific date selection when using quick filters
-    adminState.selectedVisitDate = null;
-    const datePicker = document.getElementById('visit-date-filter');
-    if (datePicker) datePicker.value = '';
-
-    // Hide clear button
-    const clearBtn = document.getElementById('clear-date-filter');
-    if (clearBtn) clearBtn.classList.remove('visible');
-
-    // Update active date filter button
-    document.querySelectorAll('.date-filter-btn').forEach(btn => btn.classList.remove('active'));
+// Handle hub filter changes
+function handleHubFilterChange(e) {
+    adminState.currentHub = e.target.dataset.hub;
+    document.querySelectorAll('.hub-filter-btn').forEach(btn => btn.classList.remove('active'));
     e.target.classList.add('active');
-
-    // Re-display bookings with new date filter
     displayBookings(adminState.bookings);
 }
 
-// Handle visit date selection from calendar
-function handleVisitDateSelection(e) {
-    const selectedDate = e.target.value;
-
-    if (selectedDate) {
-        // Set the selected date
-        adminState.selectedVisitDate = selectedDate;
-
-        // Clear quick filter selection
-        adminState.currentDateFilter = 'all';
-        document.querySelectorAll('.date-filter-btn').forEach(btn => btn.classList.remove('active'));
-
-        // Show clear button
-        const clearBtn = document.getElementById('clear-date-filter');
-        if (clearBtn) clearBtn.classList.add('visible');
-
-        // Re-display bookings with specific date filter
-        displayBookings(adminState.bookings);
-    }
-}
-
-// Clear visit date filter
-function clearVisitDateFilter() {
-    // Clear the date picker
-    const datePicker = document.getElementById('visit-date-filter');
-    if (datePicker) datePicker.value = '';
-
-    // Clear the selected date
-    adminState.selectedVisitDate = null;
-
-    // Hide clear button
-    const clearBtn = document.getElementById('clear-date-filter');
-    if (clearBtn) clearBtn.classList.remove('visible');
-
-    // Reset to "All Dates" filter
-    adminState.currentDateFilter = 'all';
-    document.querySelectorAll('.date-filter-btn').forEach(btn => {
-        if (btn.dataset.days === 'all') {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    // Re-display all bookings
+// Handle day filter changes
+function handleDayFilterChange(e) {
+    adminState.currentDay = e.target.dataset.day;
+    document.querySelectorAll('.day-filter-btn').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
     displayBookings(adminState.bookings);
 }
 
@@ -1906,34 +1844,20 @@ function getFilteredBookings() {
         }
     }
 
-    // Filter bookings based on visit date (when customers want to travel)
-    // First check if a specific date is selected in the calendar
-    if (adminState.selectedVisitDate) {
+    // Filter by hub
+    if (adminState.currentHub !== 'all') {
+        const hubFacilities = HUB_FACILITIES[adminState.currentHub] || [];
+        filteredBookings = filteredBookings.filter(booking => hubFacilities.includes(booking.facility));
+    }
+
+    // Filter by day (Saturday or Sunday)
+    if (adminState.currentDay !== 'all') {
         filteredBookings = filteredBookings.filter(booking => {
             if (!booking.visit_date) return false;
-            return booking.visit_date === adminState.selectedVisitDate;
-        });
-    } else if (adminState.currentDateFilter !== 'all') {
-        // Use quick filters if no specific date selected
-        const today = dayjs().startOf('day');
-        const filter = adminState.currentDateFilter;
-
-        filteredBookings = filteredBookings.filter(booking => {
-            if (!booking.visit_date) return false;
-
-            // Parse visit date using dayjs (handles YYYY-MM-DD format properly)
-            const visitDate = dayjs(booking.visit_date);
-
-            // Upcoming trips (future dates only)
-            if (filter === 'upcoming') {
-                return visitDate.isSameOrAfter(today, 'day');
-            }
-
-            // Past trips
-            if (filter === 'past') {
-                return visitDate.isBefore(today, 'day');
-            }
-
+            const date = new Date(booking.visit_date + 'T00:00:00');
+            const dow = date.getDay();
+            if (adminState.currentDay === 'saturday') return dow === 6;
+            if (adminState.currentDay === 'sunday') return dow === 0;
             return true;
         });
     }
@@ -1944,7 +1868,7 @@ function getFilteredBookings() {
 // Print bookings function - now respects current filters
 function handlePrintBookings() {
     console.log('🖨️ Print button clicked');
-    console.log('Current filters:', { status: adminState.currentFilter, dateRange: adminState.currentDateFilter });
+    console.log('Current filters:', { status: adminState.currentFilter, hub: adminState.currentHub, day: adminState.currentDay });
     console.log('Total bookings in adminState:', adminState.bookings.length);
 
     const bookings = getFilteredBookings();

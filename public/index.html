@@ -1239,17 +1239,19 @@
 
                     <div class="bookings-date-filters">
                         <div class="date-filter-row">
-                            <span class="filter-label">🚐 Filter by Visit Date:</span>
-                            <div class="date-picker-container">
-                                <input type="date" id="visit-date-filter" class="visit-date-picker" placeholder="Select visit date...">
-                                <button class="clear-date-btn" id="clear-date-filter" title="Clear date filter">✕</button>
+                            <span class="filter-label">🚌 Filter by Hub:</span>
+                            <div class="hub-filter-buttons">
+                                <button class="hub-filter-btn active" data-hub="all">All Hubs</button>
+                                <button class="hub-filter-btn" data-hub="1">Hub 1 — Auburn, Cayuga, Five Points, Elmira</button>
+                                <button class="hub-filter-btn" data-hub="2">Hub 2 — Attica, Groveland, Wende, Wyoming, Orleans</button>
+                                <button class="hub-filter-btn" data-hub="3">Hub 3 — Marcy, Mid-State, Mohawk</button>
                             </div>
                         </div>
                         <div class="quick-filters">
-                            <span class="quick-filter-label">Quick filters:</span>
-                            <button class="date-filter-btn active" data-days="all">All Dates</button>
-                            <button class="date-filter-btn" data-days="upcoming">Upcoming</button>
-                            <button class="date-filter-btn" data-days="past">Past Trips</button>
+                            <span class="quick-filter-label">Filter by Day:</span>
+                            <button class="day-filter-btn active" data-day="all">All Days</button>
+                            <button class="day-filter-btn" data-day="saturday">Saturday</button>
+                            <button class="day-filter-btn" data-day="sunday">Sunday</button>
                         </div>
                     </div>
 
