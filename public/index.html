@@ -58,7 +58,7 @@
     <!-- Performance & Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -223,34 +223,50 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    JCXPRESS
-                    <span class="hero-title-sub">Transportation</span>
-                </h1>
-                <p class="hero-description">
-                    Professional transportation to 12 correctional facilities across New York State.
-                    Connecting families every weekend with dependable service you can trust.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#book" class="btn btn-primary">Book with $20 Deposit</a>
-                    <a href="tel:9172445352" class="btn btn-call">Call (917) 244-5352</a>
+        <div class="hero-inner">
+            <!-- Left: Logo Panel -->
+            <div class="hero-left">
+                <div class="hero-logo-wrap">
+                    <img src="/jcxpress.png" alt="JCXPRESS" class="hero-logo-img">
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">12</span>
-                        <span class="stat-label">Facilities</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number stat-script">Sat & Sun</span>
-                        <span class="stat-label">Every Weekend</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">NYC</span>
-                        <span class="stat-label">Pickup Points</span>
+            </div>
+
+            <!-- Right: Content Panel -->
+            <div class="hero-right">
+                <div class="hero-content">
+                    <p class="hero-eyebrow">New York State</p>
+                    <div class="hero-title-accent"></div>
+                    <h1 class="hero-title">
+                        Premium<br>
+                        <em>Transportation</em><br>
+                        Services
+                    </h1>
+                    <p class="hero-description">
+                        Connecting families with their loved ones across 12 correctional facilities throughout New York State. Reliable, dignified service every weekend.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#book" class="btn btn-luxury-primary">Reserve Your Seat</a>
+                        <a href="tel:9172445352" class="btn btn-luxury-outline">Call (917) 244-5352</a>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="hero-stats-bar">
+            <div class="hero-stat">
+                <span class="hero-stat-number">12</span>
+                <span class="hero-stat-label">Facilities Served</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-number">Sat & Sun</span>
+                <span class="hero-stat-label">Every Weekend</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-number">NYC</span>
+                <span class="hero-stat-label">Pickup Points</span>
             </div>
         </div>
     </section>
