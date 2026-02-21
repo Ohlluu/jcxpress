@@ -1189,10 +1189,8 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', handleFilterChange);
 });
 
-// Hub filter buttons
-document.querySelectorAll('.hub-filter-btn').forEach(btn => {
-    btn.addEventListener('click', handleHubFilterChange);
-});
+// Hub filter dropdown
+document.getElementById('hub-filter-select')?.addEventListener('change', handleHubFilterChange);
 
 // Day filter buttons
 document.querySelectorAll('.day-filter-btn').forEach(btn => {
@@ -1569,9 +1567,7 @@ function handleFilterChange(e) {
 
 // Handle hub filter changes
 function handleHubFilterChange(e) {
-    adminState.currentHub = e.target.dataset.hub;
-    document.querySelectorAll('.hub-filter-btn').forEach(btn => btn.classList.remove('active'));
-    e.target.classList.add('active');
+    adminState.currentHub = e.target.value;
     displayBookings(adminState.bookings);
 }
 
