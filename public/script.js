@@ -876,28 +876,19 @@ const pickupLocationData = {
         { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
     ],
     'Marcy Correctional Facility': [
-        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
-        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
-        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
-        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
-        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
-        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
+        { name: 'Brooklyn: Flatbush Ave Apple Store', time: '1:45 AM', address: '123 Flatbush Ave, Brooklyn, NY 11217', value: 'brooklyn-flatbush' },
+        { name: 'Queens: Astoria Neptune Diner', time: '2:00 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Bronx: Grand Concourse Chipotle', time: '2:15 AM', address: '557 Grand Concourse, Bronx, NY 10451', value: 'bronx-chipotle' }
     ],
     'Mid-State Correctional Facility': [
-        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
-        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
-        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
-        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
-        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
-        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
+        { name: 'Brooklyn: Flatbush Ave Apple Store', time: '1:45 AM', address: '123 Flatbush Ave, Brooklyn, NY 11217', value: 'brooklyn-flatbush' },
+        { name: 'Queens: Astoria Neptune Diner', time: '2:00 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Bronx: Grand Concourse Chipotle', time: '2:15 AM', address: '557 Grand Concourse, Bronx, NY 10451', value: 'bronx-chipotle' }
     ],
     'Mohawk Correctional Facility': [
-        { name: 'Brooklyn: Eastern Pkwy McDonald\'s', time: '12:30 AM', address: '1133 Eastern Pkwy, Brooklyn, NY 11213', value: 'brooklyn-eastern' },
-        { name: 'Brooklyn: Broadway Junction', time: '12:45 AM', address: '2399 Fulton St, Brooklyn, NY 11233', value: 'brooklyn-broadway' },
-        { name: 'Queens: Sutphin Blvd Chase Bank', time: '1:00 AM', address: '9059 Sutphin Blvd, Jamaica, NY 11435', value: 'queens-sutphin' },
-        { name: 'Queens: Astoria Neptune Diner', time: '1:20 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
-        { name: 'Manhattan: 125th St Taco Bell', time: '1:30 AM', address: '161 E 125th St, New York, NY 10035', value: 'manhattan-125' },
-        { name: 'Bronx: Grand Concourse Hostos College', time: '1:45 AM', address: '500 Grand Concourse, Bronx, NY 10451', value: 'bronx-concourse' }
+        { name: 'Brooklyn: Flatbush Ave Apple Store', time: '1:45 AM', address: '123 Flatbush Ave, Brooklyn, NY 11217', value: 'brooklyn-flatbush' },
+        { name: 'Queens: Astoria Neptune Diner', time: '2:00 AM', address: '3105 Astoria Blvd N, Astoria, NY 11102', value: 'queens-astoria' },
+        { name: 'Bronx: Grand Concourse Chipotle', time: '2:15 AM', address: '557 Grand Concourse, Bronx, NY 10451', value: 'bronx-chipotle' }
     ],
 
     // Group 2 - Late Evening Pickups (10:30pm-11:30pm): Attica, Groveland, Wende, Wyoming, Orleans
