@@ -282,6 +282,33 @@ if (bookingForm) {
     });
 }
 
+// Returns the two bookable dates (Sat + Sun) for the current booking window
+function getBookableWeekend() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const day = today.getDay(); // 0=Sun, 1=Mon, ... 6=Sat
+
+    let saturday = null;
+    let sunday = null;
+
+    if (day === 0) {
+        // Sunday — this weekend is closed, next weekend opens
+        saturday = new Date(today); saturday.setDate(today.getDate() + 6);
+        sunday   = new Date(today); sunday.setDate(today.getDate() + 7);
+    } else if (day === 6) {
+        // Saturday — today is blocked, only this Sunday is open
+        sunday = new Date(today); sunday.setDate(today.getDate() + 1);
+    } else {
+        // Mon–Fri — this week's Sat and Sun are open
+        const daysUntilSat = 6 - day;
+        saturday = new Date(today); saturday.setDate(today.getDate() + daysUntilSat);
+        sunday   = new Date(today); sunday.setDate(today.getDate() + daysUntilSat + 1);
+    }
+
+    const fmt = d => d ? d.toISOString().split('T')[0] : null;
+    return { saturday, sunday, satStr: fmt(saturday), sunStr: fmt(sunday) };
+}
+
 // Form validation
 function validateBookingForm(data) {
     const requiredFields = ['name', 'phone', 'email', 'adults', 'facility', 'visit-date', 'pickup-location'];
@@ -314,19 +341,12 @@ function validateBookingForm(data) {
         showFieldError('phone', 'Please enter a valid phone number');
     }
     
-    // Date validation
+    // Date validation — only this weekend's open dates are allowed
     if (data['visit-date']) {
-        const visitDate = new Date(data['visit-date'] + 'T00:00:00');
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        const dayOfWeek = visitDate.getDay(); // 0 = Sunday, 6 = Saturday
-
-        if (visitDate < today) {
+        const { satStr, sunStr } = getBookableWeekend();
+        if (data['visit-date'] !== satStr && data['visit-date'] !== sunStr) {
             isValid = false;
-            showFieldError('visit-date', 'Visit date cannot be in the past');
-        } else if (dayOfWeek !== 0 && dayOfWeek !== 6 && !isFederalHoliday(visitDate)) {
-            isValid = false;
-            showFieldError('visit-date', 'We only provide transportation on weekends (Saturday and Sunday) and federal holidays');
+            showFieldError('visit-date', 'Bookings are only accepted for this weekend. Please select an available date.');
         }
     }
 
@@ -704,54 +724,31 @@ function enhanceFormExperience() {
         });
     }
     
-    // Set minimum date for visit date and restrict to weekends only
+    // Restrict date picker to this weekend's bookable dates only
     const visitDateInput = document.getElementById('visit-date');
     if (visitDateInput) {
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        visitDateInput.min = tomorrow.toISOString().split('T')[0];
-        
-        // Create a custom date picker that only allows weekends
-        setupWeekendOnlyDatePicker(visitDateInput);
-    }
-    
-    // Function to set up weekend-only date picker
-    function setupWeekendOnlyDatePicker(input) {
-        // Use input event to validate and potentially block invalid selections
-        input.addEventListener('input', function() {
-            const selectedDate = new Date(this.value + 'T00:00:00');
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
-            
-            if (selectedDate < today) {
-                this.setCustomValidity('Visit date cannot be in the past.');
-                showFieldError('visit-date', 'Please select a future date');
-            } else if (dayOfWeek !== 0 && dayOfWeek !== 6 && !isFederalHoliday(selectedDate)) {
-                this.setCustomValidity('We only provide transportation services on weekends (Saturday and Sunday) and federal holidays.');
-                showFieldError('visit-date', 'Please select a weekend date (Saturday or Sunday) or federal holiday');
+        const { satStr, sunStr } = getBookableWeekend();
+        const minDate = satStr || sunStr;
+        const maxDate = sunStr;
+
+        visitDateInput.min = minDate;
+        visitDateInput.max = maxDate;
+
+        function validateDateInput() {
+            const val = visitDateInput.value;
+            if (val && val !== satStr && val !== sunStr) {
+                visitDateInput.setCustomValidity('Only this weekend\'s dates are available for booking.');
+                showFieldError('visit-date', 'Bookings are only accepted for this weekend. Please select an available date.');
             } else {
-                this.setCustomValidity('');
-                // Clear any existing error
-                const errorMessage = this.parentNode.querySelector('.error-message');
-                if (errorMessage) {
-                    errorMessage.remove();
-                }
-                this.style.borderColor = 'rgba(129, 212, 217, 0.3)';
+                visitDateInput.setCustomValidity('');
+                const errorMessage = visitDateInput.parentNode.querySelector('.error-message');
+                if (errorMessage) errorMessage.remove();
+                visitDateInput.style.borderColor = 'rgba(129, 212, 217, 0.3)';
             }
-        });
-        
-        // Add change event as backup
-        input.addEventListener('change', function() {
-            this.dispatchEvent(new Event('input'));
-        });
-        
-        // Add click event to show helpful message
-        input.addEventListener('focus', function() {
-            if (!this.value) {
-                showTemporaryMessage(this, 'Select any weekend date or federal holiday. Regular weekdays will be automatically filtered out.');
-            }
-        });
+        }
+
+        visitDateInput.addEventListener('input', validateDateInput);
+        visitDateInput.addEventListener('change', validateDateInput);
     }
     
     // Show temporary helper message
