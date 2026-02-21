@@ -258,13 +258,35 @@
 
     <!-- Booking Section -->
     <section id="book" class="booking-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Book Your Transportation</h2>
-                <p>Simple, fast booking process</p>
+        <div class="booking-wrapper">
+
+            <!-- Left Info Panel -->
+            <div class="booking-info-panel">
+                <span class="booking-eyebrow">Reservations</span>
+                <h2 class="booking-panel-title">Book Your<br><em>Journey</em></h2>
+                <p class="booking-panel-sub">Secure your seat with a $20 deposit. Balance is due on the day of travel.</p>
+                <div class="booking-panel-items">
+                    <div class="booking-panel-item">
+                        <span class="panel-item-label">Service Days</span>
+                        <span class="panel-item-value">Saturday &amp; Sunday</span>
+                    </div>
+                    <div class="booking-panel-item">
+                        <span class="panel-item-label">Deposit</span>
+                        <span class="panel-item-value">$20 per seat</span>
+                    </div>
+                    <div class="booking-panel-item">
+                        <span class="panel-item-label">Facilities</span>
+                        <span class="panel-item-value">12 across New York</span>
+                    </div>
+                    <div class="booking-panel-item">
+                        <span class="panel-item-label">Contact</span>
+                        <span class="panel-item-value">(917) 244-5352</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="booking-container">
+
+            <!-- Right Form Panel -->
+            <div class="booking-form-panel">
                 <form id="booking-form" class="booking-form">
                     <div class="form-row">
                         <div class="form-group">
@@ -420,14 +442,13 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-large" id="submit-booking-btn">
-                        <span id="button-text">Pay $20 & Book Transportation</span>
-                        <span class="btn-arrow">→</span>
+                    <button type="submit" class="btn-book-submit" id="submit-booking-btn">
+                        <span id="button-text">Pay $20 &amp; Reserve Your Seat</span>
                         <span id="spinner" class="spinner" style="display: none;"></span>
                     </button>
                 </form>
-            </div>
-        </div>
+            </div><!-- end booking-form-panel -->
+        </div><!-- end booking-wrapper -->
     </section>
 
     <!-- Visitor Information Banner -->
