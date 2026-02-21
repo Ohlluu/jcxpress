@@ -58,10 +58,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        navbar.style.boxShadow = '0 1px 30px rgba(0, 0, 0, 0.5)';
+        navbar.style.background = 'rgba(248, 248, 248, 0.98)';
+        navbar.style.boxShadow = '0 1px 20px rgba(0, 0, 0, 0.08)';
     } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        navbar.style.background = 'rgba(248, 248, 248, 0.97)';
         navbar.style.boxShadow = 'none';
     }
 });
