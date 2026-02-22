@@ -16,7 +16,7 @@ const facilityPricing = {
     'Wyoming Correctional Facility': { adult: 140, child: 100 }
 };
 
-const DEPOSIT_PER_SEAT = 20;
+const DEPOSIT_PER_SEAT = 40;
 
 // Mobile Navigation Toggle
 const navToggle = document.getElementById('nav-toggle');
