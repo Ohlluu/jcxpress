@@ -104,7 +104,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #f8f8f8;
+    background: linear-gradient(160deg, #ffffff 0%, #ebebeb 100%);
     position: relative;
 }
 
