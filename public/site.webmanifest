@@ -1,26 +1,18 @@
 {
-  "name": "WE Connect Families",
-  "short_name": "WE Connect",
+  "name": "JCXPRESS",
+  "short_name": "JCXPRESS",
   "description": "Prison transportation services connecting families with their incarcerated loved ones across New York State",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/jcxpress.png",
+      "sizes": "any",
       "type": "image/png"
     }
   ],
-  "theme_color": "#0DB7BB",
+  "theme_color": "#C41E3A",
   "background_color": "#ffffff",
   "display": "standalone",
   "start_url": "/",
   "scope": "/",
-  "orientation": "portrait-primary",
-  "categories": ["transportation", "social", "lifestyle"],
-  "lang": "en-US",
-  "dir": "ltr"
+  "orientation": "portrait-primary"
 }
