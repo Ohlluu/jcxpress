@@ -1045,7 +1045,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid #e5e7eb;
 }
 
@@ -1090,30 +1090,13 @@ a.contact-card-value:hover {
     color: #C41E3A;
 }
 
-@media (max-width: 900px) {
-    .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-card:nth-child(2) {
-        border-right: none;
-    }
-
-    .contact-card:last-child {
-        border-right: 1px solid #e5e7eb;
-        grid-column: span 2;
-    }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 700px) {
     .contact-grid {
         grid-template-columns: 1fr;
     }
 
-    .contact-card,
-    .contact-card:last-child {
+    .contact-card {
         border-right: none;
-        grid-column: span 1;
     }
 }
 
