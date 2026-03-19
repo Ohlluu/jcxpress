@@ -1914,7 +1914,7 @@ function generatePrintTemplate(bookings) {
     </head>
     <body>
         <div class="header">
-            <h1>🚌 WE Connect Families</h1>
+            <h1>🚌 JCXPRESS</h1>
             <h2>Transportation Booking Report</h2>
             <p>Generated on: ${currentDate}</p>
             <p>Total Bookings: ${bookings.length}</p>
@@ -1940,7 +1940,7 @@ function generatePrintTemplate(bookings) {
     
     html += `
         <div style="margin-top: 30px; text-align: center; color: #666;">
-            <p>© WE Connect Families Transportation Services</p>
+            <p>© JCXPRESS Transportation Services</p>
         </div>
     </body>
     </html>

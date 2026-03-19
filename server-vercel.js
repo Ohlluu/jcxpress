@@ -57,7 +57,7 @@ async function initializeMongoDB() {
       // Test the connection
       await mongoClient.db('weconnectfamilies').admin().ping();
       
-      db = mongoClient.db('weconnectfamilies');
+      db = mongoClient.db('jcxpress');
       console.log('✅ MongoDB connected successfully');
       return true;
     } else {
@@ -213,11 +213,7 @@ Your trip to ${booking.facility} has been CONFIRMED! ✅
 📍 Pickup: ${booking.pickup_location}
 👥 Guests: ${booking.guests || booking.visitors || 1}
 
-IMPORTANT: When you arrive, check in using the SAME NAME you used to book: "${booking.name}"
-
-Check In: https://weconnectfam.com (Click Check In in menu)
-
-Questions? Call (646) 226-2433
+Questions? Call (917) 244-5352
 
 Reply STOP to unsubscribe.`;
 
@@ -308,13 +304,13 @@ app.post('/api/payment/create-intent', async (req, res) => {
     const { name, email, amount } = req.body;
 
     // Validate amount (should be in cents)
-    const depositAmount = amount || 2000; // Default to $20 if not provided
+    const depositAmount = amount || 4000; // Default to $40 if not provided
 
     // Create a payment intent with dynamic deposit amount
     const paymentIntent = await stripe.paymentIntents.create({
       amount: depositAmount, // Amount in cents (passed from frontend)
       currency: 'usd',
-      description: 'WE Connect Families - Transportation Deposit',
+      description: 'JCXPRESS - Transportation Deposit',
       metadata: {
         customer_name: name || 'Unknown',
         customer_email: email || 'Not provided'
@@ -411,7 +407,7 @@ app.post('/api/bookings', async (req, res) => {
       confirmed_at: null,
       payment_intent_id: payment_intent_id || null,
       payment_status: payment_status || 'pending',
-      payment_amount: 2000 // $20.00 in cents
+      payment_amount: 4000 // $40.00 in cents
     };
 
     data.bookings.push(booking);
@@ -438,7 +434,7 @@ Date: ${visitDate}
 Pickup: ${pickup_location}
 Guests: ${guests || 1}
 
-View: weconnectfam.com`;
+View: jcxpress.com`;
 
         await twilioClient.messages.create({
           body: adminMessage,
@@ -627,13 +623,13 @@ app.post('/api/admin/bookings/:id/reject', verifyAdminSession, async (req, res) 
           year: 'numeric'
         });
 
-        const message = `❌ BOOKING UPDATE - WE Connect Families
+        const message = `❌ BOOKING UPDATE - JCXPRESS
 
 Unfortunately, your transportation booking for ${booking.facility} on ${visitDate} could not be confirmed.
 
 ${reason ? `Reason: ${reason}` : ''}
 
-Please call (646) 226-2433 to discuss alternatives or reschedule.
+Please call (917) 244-5352 to discuss alternatives or reschedule.
 
 Thank you for understanding.`;
 
