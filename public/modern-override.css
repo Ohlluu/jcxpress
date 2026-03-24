@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero - Spacious & Impactful */
 .hero {
-    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%) !important;
+    background: linear-gradient(to bottom, #ffffff 0%, #d4d4d4 100%) !important;
     padding: 100px 0 80px !important;
     border-bottom: none !important;
 }
@@ -665,9 +665,113 @@ section {
     .banner-button {
         width: 100% !important;
         text-align: center !important;
+        justify-content: center !important;
     }
 
     section {
         padding: 3rem 0 !important;
+    }
+
+    /* ── NAV ── */
+    .nav-logo img {
+        height: 46px !important;
+    }
+
+    .nav-menu {
+        top: 84px !important;
+    }
+
+    /* ── HERO ── */
+    .hero-title {
+        font-size: 2.6rem !important;
+        letter-spacing: -1.5px !important;
+        max-width: 100% !important;
+    }
+
+    .hero-description {
+        font-size: 1rem !important;
+        max-width: 100% !important;
+    }
+
+    /* ── BOOKING ── */
+    .booking-info-panel {
+        padding: 3rem 1.5rem 2rem !important;
+    }
+
+    .booking-form-panel {
+        padding: 2rem 1.25rem 3rem !important;
+    }
+
+    .booking-form {
+        padding: 1.5rem !important;
+    }
+
+    /* ── CONTACT ── */
+    .contact-inner {
+        padding: 3.5rem 1.5rem !important;
+    }
+
+    /* ── FOOTER ── */
+    .footer-links {
+        flex-wrap: wrap !important;
+        gap: 0.85rem 1.5rem !important;
+        justify-content: center !important;
+    }
+
+    .footer-bottom p {
+        font-size: 0.78rem !important;
+        line-height: 1.8 !important;
+    }
+}
+
+/* ── SMALL PHONES (≤480px) ── */
+@media (max-width: 480px) {
+    .nav-logo img {
+        height: 40px !important;
+    }
+
+    .nav-menu {
+        top: 78px !important;
+    }
+
+    .hero-title {
+        font-size: 2.2rem !important;
+        letter-spacing: -1px !important;
+    }
+
+    .booking-info-panel {
+        padding: 2.5rem 1rem 1.5rem !important;
+    }
+
+    .booking-form-panel {
+        padding: 1.5rem 1rem 2.5rem !important;
+    }
+
+    .booking-form {
+        padding: 1.25rem !important;
+    }
+
+    .facility-header h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .facility-status {
+        font-size: 0.95rem !important;
+    }
+
+    .contact-inner {
+        padding: 3rem 1rem !important;
+    }
+
+    .footer-links {
+        gap: 0.75rem 1.25rem !important;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem !important;
+    }
+
+    .footer-bottom p {
+        font-size: 0.72rem !important;
     }
 }
