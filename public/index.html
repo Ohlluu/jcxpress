@@ -330,7 +330,23 @@
                             </select>
                         </div>
                     </div>
-                    
+
+                    <!-- Children Documentation Warning -->
+                    <div id="children-docs-section" class="children-docs-warning" style="display:none;">
+                        <span class="docs-warning-badge">⚠️ Required Documents for Children</span>
+                        <p>Children traveling to correctional facilities must have the following at the gate:</p>
+                        <ul>
+                            <li><strong>Original Birth Certificate</strong> — required for all children (no photocopies accepted)</li>
+                            <li><strong>Notarized Letter</strong> — required if the child is <em>not</em> your biological child (stepchild, grandchild, niece/nephew, etc.)</li>
+                        </ul>
+                        <p class="docs-warning-note">Failure to provide these documents may result in denied entry at the facility.</p>
+                        <label class="checkbox-container" style="margin-top:1rem;">
+                            <input type="checkbox" id="children-docs-consent" name="children-docs-consent">
+                            <span class="checkmark"></span>
+                            <span class="consent-text">I understand and confirm I will bring all required documents for the children traveling with me.</span>
+                        </label>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="facility">Select Facility</label>
@@ -447,6 +463,34 @@
                 </form>
             </div><!-- end booking-form-panel -->
         </div><!-- end booking-wrapper -->
+
+        <!-- Booking Success Screen -->
+        <div id="booking-success-screen" class="booking-success-screen" style="display:none;">
+            <div class="success-inner">
+                <div class="success-icon">✓</div>
+                <span class="success-eyebrow">Booking Received</span>
+                <h2 class="success-title">You're All Set!</h2>
+                <p class="success-id">Booking ID: <strong id="success-booking-id">#000000</strong></p>
+
+                <div class="success-summary" id="success-summary"></div>
+
+                <div class="success-next">
+                    <h3 class="success-next-title">What Happens Next</h3>
+                    <ol class="success-steps">
+                        <li><strong>Admin Review</strong> — Our team will review your booking and confirm availability.</li>
+                        <li><strong>SMS Confirmation</strong> — You'll receive a text message with your confirmed pickup location and time.</li>
+                        <li><strong>Day of Travel</strong> — Arrive at your pickup spot 10 minutes early. Bring a valid photo ID.</li>
+                        <li><strong>Balance Due</strong> — Pay the remaining balance in cash on the day of travel.</li>
+                    </ol>
+                </div>
+
+                <div class="success-actions">
+                    <a href="tel:9172445352" class="btn-success-call">&#x260E;&ensp;(917) 244-5352</a>
+                    <button type="button" onclick="resetBookingForm()" class="btn-success-reset">Book Another Trip</button>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <!-- Visitor Information Banner -->
@@ -775,407 +819,23 @@
     </footer>
 
 
-    <!-- Facility Details Modal -->
-    <div id="facility-modal" class="modal facility-modal">
+    <!-- Dynamic Facility Detail Modal -->
+    <div id="facility-detail-modal" class="modal facility-modal">
         <div class="modal-content facility-modal-content">
-            <span class="modal-close facility-modal-close" id="facility-modal-close">&times;</span>
+            <span class="modal-close" id="facility-detail-close">&times;</span>
             <div class="facility-details-content">
                 <div class="facility-alert">
-                    <h2>🛑 STOP AND READ!!! STOP AND READ!!!</h2>
+                    <h2>🛑 READ BEFORE YOUR TRIP</h2>
                 </div>
                 
-                <div class="facility-header-info">
-                    <h3>🏢 Coxsackie, Greene & Washington Information ℹ️</h3>
-                    <p class="travel-days">WE travel to these facilities Saturday, Sunday and Holidays.</p>
-                    <p class="thank-you">🌺🌺🌺 Thank you for contacting us regarding your upcoming travel.</p>
-                </div>
+                <div id="fmodal-header" class="facility-header-info"></div>
 
-                <div class="meeting-locations">
-                    <h4>📍 PLEASE BE ADVISED THE MEETING LOCATIONS ARE AS FOLLOWS!</h4>
-                    
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">🗽</span>
-                            <strong>BROOKLYN: Near Broadway Junction @4am</strong>
-                        </div>
-                        <p>(McDonald's on Fulton off Pennsylvania off the Jackie Robinson)</p>
-                        <p class="address">📍 12 Pennsylvania Avenue</p>
-                        <div class="warning-box">
-                            <p><strong>⚠️ DO NOT WAIT IN THE PARKING LOT, YOU WILL NOT SEE THE VEHICLE.</strong></p>
-                            <p>Wait directly in front of the McDonald's</p>
-                        </div>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">👑</span>
-                            <strong>QUEENS: Jamaica Station LIRR @4:15am</strong>
-                        </div>
-                        <p class="address">📍 (Sutphin BLVD)</p>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">⚾</span>
-                            <strong>BRONX: 161 Yankee Stadium @5am</strong>
-                        </div>
-                        <p class="address">📍 51-67 161st St</p>
-                    </div>
-                </div>
-
+                <div id="fmodal-locations" class="meeting-locations"></div>
                 <div class="important-notes">
-                    <div class="final-boarding">
-                        <h4>🚨 FINAL BOARDING IS IN THE BRONX @5am</h4>
-                        <p><strong>THERE ARE NO GRACE PERIODS, PLEASE BE ON TIME AND READY FOR YOUR TRIP</strong></p>
-                    </div>
-
-                    <div class="parking-info">
-                        <h4>🚗 PARKING INFORMATION</h4>
-                        <p><strong>IF YOU DRIVE AND ARE LOOKING TO PARK YOUR VEHICLE 🚗, PLEASE COME TO THIS LOCATION @4:30 (DO NOT COME LATE)</strong></p>
-                        <p class="address">📍 1500 Arnow Avenue, Bronx NY 10469</p>
-                        <p>Near Gunhill and Eastchester</p>
-                        <p>You will be brought back to this location</p>
-                        <div class="parking-highlight">
-                            <p><strong>🆓 THIS IS FREE PUBLIC SAFE PARKING</strong></p>
-                        </div>
-                    </div>
+                    <div id="fmodal-boarding" class="final-boarding"></div>
                 </div>
-
                 <div class="contact-footer">
-                    <p>If you have any additional questions please call/text</p>
-                    <p><strong>Thank you kindly,</strong></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Northern Facilities Details Modal -->
-    <div id="northern-facility-modal" class="modal facility-modal">
-        <div class="modal-content facility-modal-content">
-            <span class="modal-close northern-facility-modal-close" id="northern-facility-modal-close">&times;</span>
-            <div class="facility-details-content">
-                <div class="facility-alert">
-                    <h2>🛑 STOP AND READ!!! STOP AND READ!!!</h2>
-                </div>
-                
-                <div class="facility-header-info">
-                    <h3>🏢 Clinton, Altona, Franklin, Barehill, Raybrook, Adirondack & Upstate Information ℹ️</h3>
-                    <p class="thank-you">🌺🌺🌺 Thank you for contacting us regarding your upcoming travel.</p>
-                    <p class="travel-days">Please be advised we meet up at:</p>
-                </div>
-
-                <div class="meeting-locations">
-                    <h4>🗓️ WE TRAVEL EVERY SATURDAY & SUNDAY - MOST HOLIDAYS</h4>
-                    <p class="special-note">With the exception of RAYBROOK & ADIRONDACK (CALL/TEXT for travel info)</p>
-                    <p><strong>You can choose between the three pick up locations!</strong></p>
-                    
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">⚾</span>
-                            <strong>BRONX: 161 Yankee Stadium @ GATE 6 @12:30am (MIDNIGHT)</strong>
-                        </div>
-                        <p>This is directly across the street from the McDonald's</p>
-                        <p class="address">📍 51-67 161st St, Bronx, New York</p>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">🗽</span>
-                            <strong>BROOKLYN: East New York across from MTA Bus Depot @12am (MIDNIGHT)</strong>
-                        </div>
-                        <p>(McDonald's on Pennsylvania)</p>
-                        <p class="address">📍 12 Pennsylvania Avenue</p>
-                        <div class="warning-box">
-                            <p><strong>⚠️ DO NOT WAIT IN THE PARKING LOT, YOU WILL NOT SEE THE VEHICLE.</strong></p>
-                            <p>Wait directly in front of the McDonald's</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="important-notes">
-                    <div class="final-boarding">
-                        <h4>🚨 FINAL BOARDING IS IN THE BRONX 12:30am @161 YANKEE STADIUM GATE 6</h4>
-                        <p><strong>THERE ARE NO GRACE PERIODS, PLEASE 🙏 BE ON TIME AND READY FOR YOUR TRIP</strong></p>
-                    </div>
-                </div>
-
-                <div class="contact-footer">
-                    <p>If you have any additional questions please call/text</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Central Facilities Details Modal -->
-    <div id="central-facility-modal" class="modal facility-modal">
-        <div class="modal-content facility-modal-content">
-            <span class="modal-close central-facility-modal-close" id="central-facility-modal-close">&times;</span>
-            <div class="facility-details-content">
-                <div class="facility-alert">
-                    <h2>🛑 STOP & READ!!!! STOP & READ!!!!</h2>
-                </div>
-                
-                <div class="facility-header-info">
-                    <h3>🏢 Mohawk, Marcy & Midstate Information ℹ️</h3>
-                    <p class="thank-you">🌺🌺🌺 Thank you for contacting us regarding your upcoming travel.</p>
-                    <p class="travel-days">Please be advised we meet up at:</p>
-                </div>
-
-                <div class="meeting-locations">
-                    <h4>📍 PICKUP LOCATIONS</h4>
-                    
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">🗽</span>
-                            <strong>BROOKLYN: East New York across from MTA Bus Depot @2am</strong>
-                        </div>
-                        <p>(McDonald's on Pennsylvania)</p>
-                        <p class="address">📍 12 Pennsylvania Avenue</p>
-                        <div class="warning-box">
-                            <p><strong>⚠️ DO NOT WAIT IN THE PARKING LOT, YOU WILL NOT SEE THE VEHICLE.</strong></p>
-                            <p>Wait directly in front of the McDonald's</p>
-                        </div>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">👑</span>
-                            <strong>QUEENS: Jamaica Station LIRR @2:15am</strong>
-                        </div>
-                        <p class="address">📍 (Corner of Sutphin BLVD)</p>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">⚾</span>
-                            <strong>BRONX: 161 McDonald's - Yankee Stadium @3am</strong>
-                        </div>
-                        <p class="address">📍 51-67 161st St</p>
-                    </div>
-                </div>
-
-                <div class="important-notes">
-                    <div class="final-boarding">
-                        <h4>🚨 FINAL BOARDING IS IN THE BRONX @3am</h4>
-                        <p><strong>THERE ARE NO GRACE PERIODS, PLEASE BE ON TIME AND READY FOR YOUR TRIP</strong></p>
-                    </div>
-
-                    <div class="parking-info">
-                        <h4>🚗 PARKING INFORMATION</h4>
-                        <p><strong>IF YOU DRIVE AND ARE LOOKING TO PARK YOUR VEHICLE 🚗, PLEASE COME TO THIS LOCATION @1:30am (DO NOT COME LATE)</strong></p>
-                        <p class="address">📍 1500 Arnow Avenue, Bronx NY 10469</p>
-                        <p>You will be brought back to this location</p>
-                        <div class="parking-highlight">
-                            <p><strong>🆓 THIS IS FREE PUBLIC SAFE PARKING!!!</strong></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-footer">
-                    <p>If you have any additional questions please call/text</p>
-                    <p><strong>Thank you kindly,</strong></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Western Facilities Details Modal -->
-    <div id="western-facility-modal" class="modal facility-modal">
-        <div class="modal-content facility-modal-content">
-            <span class="modal-close western-facility-modal-close" id="western-facility-modal-close">&times;</span>
-            <div class="facility-details-content">
-                <div class="facility-alert">
-                    <h2>🛑 STOP AND READ!!! STOP AND READ TRAVEL INFORMATION ℹ️</h2>
-                </div>
-                
-                <div class="facility-header-info">
-                    <h3>🏢 Collins & Lakeview Correctional Facility</h3>
-                    <div class="sunday-only-notice">
-                        <h4>⚠️ WE CURRENTLY ONLY TRAVEL SUNDAYS TO THIS FACILITY</h4>
-                    </div>
-                    <p class="thank-you">🌺🌺🌺 Thank you for contacting us regarding your upcoming travel.</p>
-                    <p class="travel-days">Please be advised we meet up at:</p>
-                </div>
-
-                <div class="meeting-locations">
-                    <h4>📍 PICKUP LOCATIONS</h4>
-                    
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">⚾</span>
-                            <strong>161 Yankee Stadium @ GATE 6 @12:30am (MIDNIGHT)</strong>
-                        </div>
-                        <p>This is directly across the street from the McDonald's</p>
-                        <p class="address">📍 51-67 161st St, Bronx, New York</p>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">🗽</span>
-                            <strong>BROOKLYN: East New York across from MTA Bus Depot @12am (MIDNIGHT)</strong>
-                        </div>
-                        <p>(McDonald's on Pennsylvania)</p>
-                        <p class="address">📍 12 Pennsylvania Avenue</p>
-                        <div class="warning-box">
-                            <p><strong>⚠️ DO NOT WAIT IN THE PARKING LOT, YOU WILL NOT SEE THE VEHICLE.</strong></p>
-                            <p>Wait directly in front of the McDonald's</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="important-notes">
-                    <div class="final-boarding">
-                        <h4>🚨 FINAL BOARDING IS IN THE BRONX 12:30am (MIDNIGHT)</h4>
-                        <p><strong>THERE ARE NO GRACE PERIODS, PLEASE BE ON TIME AND READY FOR YOUR TRIP</strong></p>
-                    </div>
-                </div>
-
-                <div class="contact-footer">
-                    <p>If you have any additional questions please call/text</p>
-                    <p><strong>Thank you kindly,</strong></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sunday Only Facilities Modal (Riverview, Gouverneur, Cape Vincent) -->
-    <div id="sunday-only-facility-modal" class="modal facility-modal">
-        <div class="modal-content facility-modal-content">
-            <span class="modal-close sunday-only-facility-modal-close" id="sunday-only-facility-modal-close">&times;</span>
-            <div class="facility-details-content">
-                <div class="facility-alert">
-                    <h2>🛑 STOP AND READ!!! STOP AND READ!!!</h2>
-                </div>
-                
-                <div class="facility-header-info">
-                    <h3>🏢 RIVERVIEW, GOUVERNEUR & CAPE VINCENT</h3>
-                    <div class="sunday-only-notice">
-                        <h4>⚠️ WE CURRENTLY ONLY TRAVEL SUNDAYS TO THIS FACILITY</h4>
-                    </div>
-                    <p class="thank-you">🌺🌺🌺 Thank you for contacting us regarding your upcoming travel.</p>
-                    <p class="travel-days">Please be advised we meet up at:</p>
-                </div>
-
-                <div class="meeting-locations">
-                    <h4>📍 PICKUP LOCATIONS</h4>
-                    
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">🗽</span>
-                            <strong>BROOKLYN: EAST NEW YORK ACROSS FROM MTA BUS DEPOT @12am</strong>
-                        </div>
-                        <p>(McDonald's on Pennsylvania)</p>
-                        <p class="address">📍 12 Pennsylvania Avenue</p>
-                        <div class="warning-box">
-                            <p><strong>⚠️ DO NOT WAIT IN THE PARKING LOT, YOU WILL NOT SEE THE VEHICLE.</strong></p>
-                            <p>Wait directly in front of the McDonald's</p>
-                        </div>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">⚾</span>
-                            <strong>161 Yankee Stadium GATE 6 @12:30am</strong>
-                        </div>
-                        <p>This is directly across the street from the McDonald's.</p>
-                        <p class="address">📍 51-67 161st St Bronx, New York</p>
-                    </div>
-                </div>
-
-                <div class="important-notes">
-                    <div class="final-boarding">
-                        <h4>🚨 FINAL BOARDING IS IN THE BRONX 12:30am @161 YANKEE STADIUM GATE 6</h4>
-                        <p><strong>THERE ARE NO GRACE PERIODS, PLEASE 🙏 BE ON TIME AND READY FOR YOUR TRIP</strong></p>
-                    </div>
-
-                    <div class="parking-info">
-                        <h4>🚗 PARKING INFORMATION</h4>
-                        <p><strong>IF YOU DRIVE AND ARE LOOKING TO PARK YOUR VEHICLE 🚗, PLEASE COME TO THIS LOCATION @12am (DO NOT COME LATE)</strong></p>
-                        <p class="address">📍 1500 Arnow avenue, Bronx NY 10469</p>
-                        <p>You will be brought back to this location</p>
-                        <div class="parking-highlight">
-                            <p><strong>🆓 THIS IS FREE PUBLIC SAFE PARKING!!!</strong></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-footer">
-                    <p>If you have any additional questions please call/text</p>
-                    <p><strong>Thank you kindly,</strong></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Otisville Facilities Details Modal -->
-    <div id="otisville-facility-modal" class="modal facility-modal">
-        <div class="modal-content facility-modal-content">
-            <span class="modal-close otisville-facility-modal-close" id="otisville-facility-modal-close">&times;</span>
-            <div class="facility-details-content">
-                <div class="facility-alert">
-                    <h2>🛑 STOP AND READ!!! STOP AND READ!!!</h2>
-                </div>
-
-                <div class="facility-header-info">
-                    <h3>🏢 Otisville and Otisville FCI Information ℹ️</h3>
-                    <p class="travel-days">WE travel to these facilities Saturday, Sunday and Holidays.</p>
-                    <p class="thank-you">🌺🌺🌺 Thank you for contacting us regarding your upcoming travel.</p>
-                </div>
-
-                <div class="meeting-locations">
-                    <h4>📍 PLEASE BE ADVISED THE MEETING LOCATIONS ARE AS FOLLOWS!</h4>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">🗽</span>
-                            <strong>BROOKLYN: Near Broadway Junction @4am</strong>
-                        </div>
-                        <p>(McDonald's on Fulton off Pennsylvania off the Jackie Robinson)</p>
-                        <p class="address">📍 12 Pennsylvania Avenue</p>
-                        <div class="warning-box">
-                            <p><strong>⚠️ DO NOT WAIT IN THE PARKING LOT, YOU WILL NOT SEE THE VEHICLE.</strong></p>
-                            <p>Wait directly in front of the McDonald's</p>
-                        </div>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">👑</span>
-                            <strong>QUEENS: Jamaica Station LIRR @4:15am</strong>
-                        </div>
-                        <p class="address">📍 (Sutphin BLVD)</p>
-                    </div>
-
-                    <div class="location-item">
-                        <div class="location-header">
-                            <span class="location-icon">⚾</span>
-                            <strong>BRONX: 161 Yankee Stadium @5am</strong>
-                        </div>
-                        <p class="address">📍 51-67 161st St</p>
-                    </div>
-                </div>
-
-                <div class="important-notes">
-                    <div class="final-boarding">
-                        <h4>🚨 FINAL BOARDING IS IN THE BRONX @5am</h4>
-                        <p><strong>THERE ARE NO GRACE PERIODS, PLEASE BE ON TIME AND READY FOR YOUR TRIP</strong></p>
-                    </div>
-
-                    <div class="parking-info">
-                        <h4>🚗 PARKING INFORMATION</h4>
-                        <p><strong>IF YOU DRIVE AND ARE LOOKING TO PARK YOUR VEHICLE 🚗, PLEASE COME TO THIS LOCATION @4:45am (DO NOT COME LATE)</strong></p>
-                        <p class="address">📍 1500 Arnow Avenue, Bronx NY 10469</p>
-                        <p>Near Gunhill and Eastchester</p>
-                        <p>You will be brought back to this location</p>
-                        <div class="parking-highlight">
-                            <p><strong>🆓 THIS IS FREE PUBLIC SAFE PARKING</strong></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-footer">
-                    <p>If you have any additional questions please call/text</p>
-                    <p><strong>Follow us on Instagram ⭐️⭐️⭐️</strong></p>
+                    <p>Questions? Call or text <strong>(917) 244-5352</strong></p>
                 </div>
             </div>
         </div>

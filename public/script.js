@@ -163,6 +163,21 @@ document.getElementById('facility')?.addEventListener('change', calculatePrice);
 document.getElementById('adults')?.addEventListener('change', calculatePrice);
 document.getElementById('children')?.addEventListener('change', calculatePrice);
 
+// Children documentation warning
+document.getElementById('children')?.addEventListener('change', function() {
+    const count = parseInt(this.value) || 0;
+    const section = document.getElementById('children-docs-section');
+    const consent = document.getElementById('children-docs-consent');
+    if (!section) return;
+    if (count > 0) {
+        section.style.display = 'block';
+        if (consent) consent.required = true;
+    } else {
+        section.style.display = 'none';
+        if (consent) { consent.required = false; consent.checked = false; }
+    }
+});
+
 // Booking form submission
 if (bookingForm) {
     bookingForm.addEventListener('submit', async function(e) {
@@ -250,29 +265,22 @@ if (bookingForm) {
 
             console.log('✅ Booking saved successfully!');
 
-            // Show success message
-            showNotification(
-                `Booking confirmed! Your booking ID is #${data.bookingId}. Payment of $${priceInfo.depositAmount}.00 received. You will receive confirmation details shortly.`,
-                'success'
-            );
+            // Show success screen
+            showBookingSuccess(data.bookingId, serverData, priceInfo);
 
             // Reset form and card element
             this.reset();
-            if (cardElement) {
-                cardElement.clear();
-            }
+            if (cardElement) cardElement.clear();
 
-            // Scroll to top
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }, 1000);
+            // Reset children docs section
+            const docsSection = document.getElementById('children-docs-section');
+            const docsConsent = document.getElementById('children-docs-consent');
+            if (docsSection) docsSection.style.display = 'none';
+            if (docsConsent) { docsConsent.checked = false; docsConsent.required = false; }
 
         } catch (error) {
             console.error('Booking error:', error);
-            showPaymentError(error.message || 'Payment failed. Please try again or call (646) 226-2433.');
+            showPaymentError(error.message || 'Payment failed. Please try again or call (917) 244-5352.');
             showNotification('Booking failed: ' + error.message, 'error');
         } finally {
             buttonText.textContent = originalText;
@@ -355,6 +363,15 @@ function validateBookingForm(data) {
     if (smsConsentCheckbox && !smsConsentCheckbox.checked) {
         isValid = false;
         showFieldError('sms-consent', 'You must consent to receive SMS notifications to complete your booking');
+    }
+
+    // Children docs consent validation
+    if ((parseInt(data.children) || 0) > 0) {
+        const docsConsent = document.getElementById('children-docs-consent');
+        if (!docsConsent || !docsConsent.checked) {
+            isValid = false;
+            showNotification('Please confirm you have read the children documentation requirements.', 'warning');
+        }
     }
 
     return isValid;
@@ -986,22 +1003,127 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeDemoData();
     enhanceFormExperience();
     animateOnScroll();
-    
+
     // Set up facility change listener for pickup locations
     const facilitySelect = document.getElementById('facility');
     if (facilitySelect) {
         facilitySelect.addEventListener('change', updatePickupLocations);
     }
-    
+
     // Add loading states to buttons
     document.querySelectorAll('.btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             if (this.type === 'submit') {
-                // Let form handler deal with loading state
                 return;
             }
         });
     });
+
+    // Add "View Pickup Times" button to every facility card that has pickup data
+    document.querySelectorAll('.facility-card').forEach(card => {
+        const name = card.querySelector('h3')?.textContent?.trim();
+        if (name && pickupLocationData[name]) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'facility-details-btn';
+            btn.textContent = 'View Pickup Times';
+            btn.onclick = () => openFacilityModal(name);
+            card.querySelector('.facility-info')?.appendChild(btn);
+        }
+    });
+});
+
+// ===========================================
+// BOOKING SUCCESS SCREEN
+// ===========================================
+function showBookingSuccess(bookingId, bookingData, priceInfo) {
+    document.getElementById('success-booking-id').textContent = '#' + bookingId;
+
+    const formatDate = dateStr => {
+        const d = new Date(dateStr + 'T12:00:00');
+        return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    };
+
+    const locs = pickupLocationData[bookingData.facility] || [];
+    const loc = locs.find(l => l.value === bookingData.pickup_location);
+    const pickupDisplay = loc ? `${loc.name} @ ${loc.time}` : bookingData.pickup_location;
+
+    const adults = parseInt(bookingData.adults) || 0;
+    const children = parseInt(bookingData.children) || 0;
+    const passengerText = `${adults} Adult${adults !== 1 ? 's' : ''}${children > 0 ? ` + ${children} Child${children !== 1 ? 'ren' : ''}` : ''}`;
+
+    document.getElementById('success-summary').innerHTML = `
+        <div class="summary-row"><span>Facility</span><span>${bookingData.facility}</span></div>
+        <div class="summary-row"><span>Visit Date</span><span>${formatDate(bookingData.visit_date)}</span></div>
+        <div class="summary-row"><span>Pickup</span><span>${pickupDisplay}</span></div>
+        <div class="summary-row"><span>Passengers</span><span>${passengerText}</span></div>
+        <div class="summary-divider"></div>
+        <div class="summary-row summary-deposit"><span>Deposit Paid</span><span>$${priceInfo.depositAmount}.00 ✓</span></div>
+        <div class="summary-row summary-balance"><span>Balance Due on Trip</span><span>$${priceInfo.balanceDue}.00</span></div>
+    `;
+
+    document.querySelector('.booking-wrapper').style.display = 'none';
+    document.getElementById('booking-success-screen').style.display = 'block';
+    document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+}
+
+function resetBookingForm() {
+    document.getElementById('booking-success-screen').style.display = 'none';
+    document.querySelector('.booking-wrapper').style.display = 'grid';
+    const docsSection = document.getElementById('children-docs-section');
+    const docsConsent = document.getElementById('children-docs-consent');
+    if (docsSection) docsSection.style.display = 'none';
+    if (docsConsent) { docsConsent.checked = false; docsConsent.required = false; }
+    document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ===========================================
+// DYNAMIC FACILITY DETAIL MODAL
+// ===========================================
+function openFacilityModal(facilityName) {
+    const locations = pickupLocationData[facilityName];
+    if (!locations || !locations.length) return;
+
+    document.getElementById('fmodal-header').innerHTML = `
+        <h3>${facilityName}</h3>
+        <p class="travel-days">Weekend service — Saturday &amp; Sunday</p>
+        <p class="thank-you">Please arrive at your pickup location on time. <strong>There are no grace periods.</strong></p>
+    `;
+
+    let locHTML = '<h4>📍 PICKUP LOCATIONS &amp; TIMES</h4>';
+    locations.forEach(loc => {
+        locHTML += `
+            <div class="location-item">
+                <div class="location-header" style="justify-content:space-between;">
+                    <strong>${loc.name}</strong>
+                    <span class="pickup-location-time">${loc.time}</span>
+                </div>
+                <p class="address">📍 ${loc.address}</p>
+            </div>
+        `;
+    });
+    document.getElementById('fmodal-locations').innerHTML = locHTML;
+
+    const last = locations[locations.length - 1];
+    document.getElementById('fmodal-boarding').innerHTML = `
+        <h4>🚨 FINAL BOARDING: ${last.name.toUpperCase()} @ ${last.time}</h4>
+        <p><strong>THERE ARE NO GRACE PERIODS. PLEASE BE ON TIME AND READY FOR YOUR TRIP.</strong></p>
+    `;
+
+    document.getElementById('facility-detail-modal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Close facility detail modal
+document.getElementById('facility-detail-close')?.addEventListener('click', () => {
+    document.getElementById('facility-detail-modal').style.display = 'none';
+    document.body.style.overflow = '';
+});
+window.addEventListener('click', e => {
+    if (e.target === document.getElementById('facility-detail-modal')) {
+        document.getElementById('facility-detail-modal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
 });
 
 // Keyboard shortcuts
