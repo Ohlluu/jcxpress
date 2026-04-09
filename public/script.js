@@ -245,6 +245,7 @@ if (bookingForm) {
                 notes: bookingData.notes || '',
                 payment_intent_id: paymentResult.paymentIntentId,
                 payment_status: 'succeeded',
+                deposit_amount: priceInfo.depositAmount,
                 total_cost: priceInfo.totalPrice,
                 balance_due: priceInfo.balanceDue
             };

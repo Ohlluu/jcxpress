@@ -379,7 +379,7 @@ app.post('/api/payment/verify', async (req, res) => {
 
 // POST /api/bookings - Create a new booking
 app.post('/api/bookings', async (req, res) => {
-  const { name, phone, email, facility, visit_date, pickup_location, guests, notes, payment_intent_id, payment_status } = req.body;
+  const { name, phone, email, facility, visit_date, pickup_location, guests, notes, payment_intent_id, payment_status, deposit_amount } = req.body;
 
   if (!name || !phone || !facility || !visit_date || !pickup_location) {
     return res.status(400).json({ 
@@ -407,7 +407,7 @@ app.post('/api/bookings', async (req, res) => {
       confirmed_at: null,
       payment_intent_id: payment_intent_id || null,
       payment_status: payment_status || 'pending',
-      payment_amount: 4000 // $40.00 in cents
+      payment_amount: deposit_amount ? Math.round(deposit_amount * 100) : 4000
     };
 
     data.bookings.push(booking);
