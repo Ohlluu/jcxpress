@@ -103,8 +103,35 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Apply rate limiting to admin login
 app.use('/api/admin/login', loginLimiter);
 
-// Simple session store
+// Session store (MongoDB-backed, falls back to memory)
 const adminSessions = new Map();
+
+async function saveSession(token, session) {
+  if (db) {
+    await db.collection('sessions').updateOne(
+      { token },
+      { $set: { token, ...session } },
+      { upsert: true }
+    );
+  } else {
+    adminSessions.set(token, session);
+  }
+}
+
+async function getSession(token) {
+  if (db) {
+    return await db.collection('sessions').findOne({ token });
+  }
+  return adminSessions.get(token);
+}
+
+async function deleteSession(token) {
+  if (db) {
+    await db.collection('sessions').deleteOne({ token });
+  } else {
+    adminSessions.delete(token);
+  }
+}
 
 // Fallback storage for when MongoDB is not available
 let fallbackData = { bookings: [], nextId: 1 };
@@ -474,7 +501,7 @@ View: jcxpress.com`;
 });
 
 // Admin login
-app.post('/api/admin/login', (req, res) => {
+app.post('/api/admin/login', async (req, res) => {
   const { password } = req.body;
 
   if (!password) {
@@ -490,7 +517,7 @@ app.post('/api/admin/login', (req, res) => {
   const sessionToken = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
-  adminSessions.set(sessionToken, { 
+  await saveSession(sessionToken, {
     createdAt: new Date(),
     expiresAt: expiresAt
   });
@@ -506,20 +533,20 @@ app.post('/api/admin/login', (req, res) => {
 });
 
 // Middleware to verify admin session
-function verifyAdminSession(req, res, next) {
+async function verifyAdminSession(req, res, next) {
   const sessionToken = req.headers.authorization?.replace('Bearer ', '');
 
   if (!sessionToken) {
     return res.status(401).json({ error: 'No session token provided' });
   }
 
-  const session = adminSessions.get(sessionToken);
+  const session = await getSession(sessionToken);
   if (!session) {
     return res.status(401).json({ error: 'Invalid session token' });
   }
 
-  if (new Date() > session.expiresAt) {
-    adminSessions.delete(sessionToken);
+  if (new Date() > new Date(session.expiresAt)) {
+    await deleteSession(sessionToken);
     return res.status(401).json({ error: 'Session expired' });
   }
 
@@ -803,8 +830,8 @@ app.post('/api/checkin', async (req, res) => {
 app.post('/api/admin/logout', verifyAdminSession, (req, res) => {
   const sessionToken = req.headers.authorization?.replace('Bearer ', '');
 
-  if (sessionToken && adminSessions.has(sessionToken)) {
-    adminSessions.delete(sessionToken);
+  if (sessionToken) {
+    await deleteSession(sessionToken);
   }
 
   res.json({
