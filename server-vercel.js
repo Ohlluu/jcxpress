@@ -34,6 +34,7 @@ try {
 
 let mongoClient = null;
 let db = null;
+let mongoLastError = null;
 
 // Initialize MongoDB connection
 async function initializeMongoDB() {
@@ -66,7 +67,8 @@ async function initializeMongoDB() {
     }
   } catch (error) {
     console.error('❌ MongoDB connection failed:', error.message);
-    db = null; // Ensure db is null on failure
+    mongoLastError = error.message;
+    db = null;
     return false;
   }
 }
@@ -268,7 +270,7 @@ app.get('/api/health', async (req, res) => {
         mongodb: {
           uri: mongoStatus,
           connection: dbStatus,
-          error: connectError || 'Connection failed - check Vercel logs'
+          error: connectError || mongoLastError || 'Connection failed - check Vercel logs'
         },
         fallback_bookings: fallbackData.bookings.length,
         timestamp: new Date()
