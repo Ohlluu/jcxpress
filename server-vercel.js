@@ -238,17 +238,21 @@ app.get('/api/health', async (req, res) => {
   try {
     const mongoStatus = process.env.MONGODB_URI ? 'configured' : 'not configured';
     
+    let connectError = null;
     if (process.env.MONGODB_URI && !db) {
-      await initializeMongoDB();
+      try {
+        await initializeMongoDB();
+      } catch (e) {
+        connectError = e.message;
+      }
     }
-    
+
     const dbStatus = db ? 'connected' : 'disconnected';
-    
+
     if (db) {
-      // Test query
       const collection = db.collection('bookings');
       const count = await collection.countDocuments();
-      
+
       res.json({
         status: 'ok',
         mongodb: {
@@ -264,7 +268,7 @@ app.get('/api/health', async (req, res) => {
         mongodb: {
           uri: mongoStatus,
           connection: dbStatus,
-          error: 'Using fallback storage'
+          error: connectError || 'Connection failed - check Vercel logs'
         },
         fallback_bookings: fallbackData.bookings.length,
         timestamp: new Date()
