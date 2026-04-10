@@ -211,24 +211,7 @@ if (bookingForm) {
                 throw new Error('Please select facility and number of adults');
             }
 
-            console.log('💰 Deposit amount:', priceInfo.depositAmount);
-
-            // Step 1: Create Payment Intent with calculated deposit
-            console.log('💳 Creating payment intent...');
-            const paymentIntent = await createPaymentIntent(bookingData, priceInfo.depositAmount);
-
-            // Step 2: Process Payment with Stripe
-            console.log('💳 Processing payment...');
-            buttonText.textContent = 'Processing Payment...';
-            const paymentResult = await processPayment(paymentIntent.clientSecret);
-
-            if (!paymentResult.success) {
-                throw new Error('Payment failed');
-            }
-
-            console.log('✅ Payment successful!');
-
-            // Step 3: Submit booking with payment info
+            // TEST MODE - skip payment, submit booking directly
             buttonText.textContent = 'Saving Booking...';
 
             // Transform field names for server (hyphens to underscores)
@@ -243,8 +226,8 @@ if (bookingForm) {
                 children: parseInt(bookingData.children) || 0,
                 guests: (parseInt(bookingData.adults) || 1) + (parseInt(bookingData.children) || 0),
                 notes: bookingData.notes || '',
-                payment_intent_id: paymentResult.paymentIntentId,
-                payment_status: 'succeeded',
+                payment_intent_id: 'TEST_MODE',
+                payment_status: 'test',
                 deposit_amount: priceInfo.depositAmount,
                 total_cost: priceInfo.totalPrice,
                 balance_due: priceInfo.balanceDue
