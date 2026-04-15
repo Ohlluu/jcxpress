@@ -827,7 +827,7 @@ app.post('/api/checkin', async (req, res) => {
 });
 
 // Admin logout
-app.post('/api/admin/logout', verifyAdminSession, (req, res) => {
+app.post('/api/admin/logout', verifyAdminSession, async (req, res) => {
   const sessionToken = req.headers.authorization?.replace('Bearer ', '');
 
   if (sessionToken) {
