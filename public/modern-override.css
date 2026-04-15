@@ -813,3 +813,17 @@ section {
 .btn-hero-ghost:hover {
     color: #ffffff !important;
 }
+
+/* ============================================================
+   BOOKING SECTION - CENTERED TWO-COLUMN LAYOUT
+   ============================================================ */
+.booking-section {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.booking-wrapper {
+    max-width: 1200px !important;
+    width: 100% !important;
+    min-height: unset !important;
+}
