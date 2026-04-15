@@ -855,8 +855,7 @@ section {
 .facility-card {
     background: #ffffff !important;
     border: none !important;
-    border-left: 4px solid #C41E3A !important;
-    border-radius: 0 10px 10px 0 !important;
+    border-radius: 10px !important;
     padding: 1.5rem !important;
     transition: none !important;
     position: relative !important;
