@@ -71,7 +71,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero - Spacious & Impactful */
 .hero {
-    background: linear-gradient(to bottom, #ffffff 0%, #d4d4d4 100%) !important;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+        url('/hero-bg.jpg') center center / cover no-repeat !important;
     padding: 100px 0 80px !important;
     border-bottom: none !important;
 }
@@ -84,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-title {
     font-size: 4rem !important;
     font-weight: 800 !important;
-    color: #1a1a1a !important;
+    color: #ffffff !important;
     text-transform: none !important;
     letter-spacing: -2.5px !important;
     line-height: 1.1 !important;
@@ -99,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-description {
-    color: #4a4a4a !important;
+    color: rgba(255,255,255,0.88) !important;
     font-size: 1.2rem !important;
     font-weight: 400 !important;
     max-width: 650px !important;
@@ -108,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-description:first-of-type {
-    color: #d32f2f !important;
+    color: rgba(255,255,255,0.6) !important;
     font-weight: 700 !important;
     font-size: 0.8rem !important;
     letter-spacing: 2.5px !important;
@@ -774,4 +776,40 @@ section {
     .footer-bottom p {
         font-size: 0.72rem !important;
     }
+}
+
+/* ============================================================
+   HERO BACKGROUND IMAGE - TEXT COLOR OVERRIDES
+   ============================================================ */
+.hero-eyebrow {
+    color: rgba(255,255,255,0.6) !important;
+}
+
+.hero-title em {
+    color: #ff6b6b !important;
+}
+
+.hero-stats-bar {
+    border-top: 1px solid rgba(255,255,255,0.15) !important;
+    background: rgba(0,0,0,0.3) !important;
+}
+
+.hero-stat {
+    border-right: 1px solid rgba(255,255,255,0.15) !important;
+}
+
+.hero-stat-number {
+    color: #ffffff !important;
+}
+
+.hero-stat-label {
+    color: rgba(255,255,255,0.55) !important;
+}
+
+.btn-hero-ghost {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+.btn-hero-ghost:hover {
+    color: #ffffff !important;
 }
