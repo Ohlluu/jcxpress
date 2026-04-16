@@ -1492,17 +1492,19 @@ if (originalBookingForm) {
 
 async function handleDatabaseBookingSubmission(e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
-    
+
     // Show loading state
     submitButton.disabled = true;
     submitButton.textContent = 'Submitting...';
-    
+
     // Get form data
     const formData = new FormData(form);
+    const adults = parseInt(formData.get('adults')) || 1;
+    const children = parseInt(formData.get('children')) || 0;
     const bookingData = {
         name: formData.get('name'),
         phone: formData.get('phone'),
@@ -1510,53 +1512,71 @@ async function handleDatabaseBookingSubmission(e) {
         facility: formData.get('facility'),
         visit_date: formData.get('visit-date'),
         pickup_location: formData.get('pickup-location'),
-        guests: formData.get('guests') || 1,
+        adults: adults,
+        children: children,
+        guests: adults + children,
         notes: formData.get('notes') || ''
     };
-    
+
     // Validate form
     if (!validateBookingForm(bookingData)) {
         submitButton.disabled = false;
         submitButton.textContent = originalText;
         return;
     }
-    
+
     try {
+        // Process Stripe payment first ($1 for testing)
+        submitButton.textContent = 'Processing payment...';
+        const TEST_DEPOSIT = 1; // $1 for testing — change to actual deposit amount for production
+
+        const paymentIntent = await createPaymentIntent(bookingData, TEST_DEPOSIT);
+        const paymentResult = await processPayment(paymentIntent.clientSecret);
+
+        if (!paymentResult.success) {
+            throw new Error('Payment was not successful. Please try again.');
+        }
+
+        // Payment succeeded — now save booking to database
+        submitButton.textContent = 'Saving booking...';
+
         const response = await fetch(`${API_BASE}/api/bookings`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(bookingData)
+            body: JSON.stringify({
+                ...bookingData,
+                payment_intent_id: paymentResult.paymentIntentId,
+                payment_status: 'paid'
+            })
         });
-        
+
         const data = await response.json();
-        
+
         if (response.ok && data.success) {
-            // Success - booking saved to database
             showNotification(
                 `🎉 Booking submitted successfully! Booking ID: ${data.bookingId}. We will contact you soon to confirm.`,
                 'success'
             );
-            
+
             // Reset form
             form.reset();
-            
+
             // Reset pickup location dropdown
             const pickupSelect = document.getElementById('pickup-location');
             if (pickupSelect) {
                 pickupSelect.disabled = true;
                 pickupSelect.innerHTML = '<option value="">First select a facility above...</option>';
             }
-            
+
         } else {
             throw new Error(data.error || 'Failed to submit booking');
         }
     } catch (error) {
         console.error('Booking submission error:', error);
-        showNotification(`❌ Failed to submit booking: ${error.message}`, 'error');
+        showNotification(`❌ ${error.message || 'Failed to submit booking. Please try again.'}`, 'error');
     } finally {
-        // Reset button
         submitButton.disabled = false;
         submitButton.textContent = originalText;
     }
