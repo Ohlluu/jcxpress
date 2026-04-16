@@ -832,16 +832,16 @@ section {
    FACILITIES SECTION - FULL REDESIGN (RED / WHITE / BLACK)
    ============================================================ */
 .facilities-section {
-    background: #111111 !important;
+    background: #f4f4f4 !important;
     padding: 6rem 0 !important;
 }
 
 .facilities-section .section-header h2 {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 .facilities-section .section-header p {
-    color: rgba(255,255,255,0.45) !important;
+    color: #666666 !important;
 }
 
 .facilities-grid {
@@ -851,7 +851,7 @@ section {
     margin-top: 3rem !important;
 }
 
-/* Card — white on black, red left border accent */
+/* Card — white on light gray background */
 .facility-card {
     background: #ffffff !important;
     border: none !important;
@@ -860,6 +860,7 @@ section {
     transition: none !important;
     position: relative !important;
     overflow: hidden !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
 }
 
 .facility-card::before {
