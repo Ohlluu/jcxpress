@@ -211,7 +211,17 @@ if (bookingForm) {
                 throw new Error('Please select facility and number of adults');
             }
 
-            // TEST MODE - skip payment, submit booking directly
+            // Process Stripe payment ($1 for testing)
+            buttonText.textContent = 'Processing Payment...';
+            const TEST_DEPOSIT = 1; // $1 for testing — change to priceInfo.depositAmount / 100 for production
+
+            const paymentIntent = await createPaymentIntent({ name: bookingData.name, email: bookingData.email }, TEST_DEPOSIT);
+            const paymentResult = await processPayment(paymentIntent.clientSecret);
+
+            if (!paymentResult.success) {
+                throw new Error('Payment was not successful. Please try again.');
+            }
+
             buttonText.textContent = 'Saving Booking...';
 
             // Transform field names for server (hyphens to underscores)
@@ -226,8 +236,8 @@ if (bookingForm) {
                 children: parseInt(bookingData.children) || 0,
                 guests: (parseInt(bookingData.adults) || 1) + (parseInt(bookingData.children) || 0),
                 notes: bookingData.notes || '',
-                payment_intent_id: 'TEST_MODE',
-                payment_status: 'test',
+                payment_intent_id: paymentResult.paymentIntentId,
+                payment_status: 'paid',
                 deposit_amount: priceInfo.depositAmount,
                 total_cost: priceInfo.totalPrice,
                 balance_due: priceInfo.balanceDue
