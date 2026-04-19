@@ -114,7 +114,7 @@ async function sendCustomerConfirmation(booking) {
     const depositPaid = (booking.deposit_amount / 100).toFixed(2);
     const balanceDue = (booking.balance_due / 100).toFixed(2);
 
-    const message = `✅ WE Connect Families - Booking Confirmed!
+    const message = `✅ JCXPRESS - Booking Received!
 
 Booking #${booking.id}
 ${booking.facility}

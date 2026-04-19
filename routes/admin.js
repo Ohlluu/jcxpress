@@ -282,7 +282,7 @@ async function sendBookingNotifications(booking, action, reason = null) {
         // SMS Notification
         if (twilioClient && process.env.TWILIO_PHONE_NUMBER) {
             try {
-                const smsMessage = `✅ BOOKING CONFIRMED - WE Connect Families
+                const smsMessage = `✅ BOOKING CONFIRMED - JCXPRESS
 
 Your transportation to ${booking.facility} on ${visitDate} has been CONFIRMED!
 
@@ -290,7 +290,7 @@ Your transportation to ${booking.facility} on ${visitDate} has been CONFIRMED!
 👥 Guests: ${booking.guests}
 
 Questions? Call (917) 244-5352
-Thank you for choosing WE Connect Families!`;
+Thank you for choosing JCXPRESS!`;
 
                 const smsResult = await twilioClient.messages.create({
                     body: smsMessage,
@@ -313,13 +313,13 @@ Thank you for choosing WE Connect Families!`;
                     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                         <div style="background: linear-gradient(135deg, #0DB7BB, #4ECDC4); color: white; padding: 20px; text-align: center;">
                             <h1>✅ Booking Confirmed!</h1>
-                            <p>WE Connect Families Transportation</p>
+                            <p>JCXPRESS Transportation</p>
                         </div>
-                        
+
                         <div style="padding: 30px; background: #f8f9fa;">
                             <h2>Hello ${booking.name},</h2>
                             <p>Great news! Your transportation booking has been <strong>CONFIRMED</strong>.</p>
-                            
+
                             <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
                                 <h3>📋 Booking Details:</h3>
                                 <ul style="list-style: none; padding: 0;">
@@ -329,17 +329,16 @@ Thank you for choosing WE Connect Families!`;
                                     <li><strong>👥 Number of Guests:</strong> ${booking.guests}</li>
                                 </ul>
                             </div>
-                            
+
                             <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                                 <p><strong>Important:</strong> Please arrive 15 minutes early at your pickup location.</p>
                                 <p>Questions or need to make changes? Call us at <strong>(917) 244-5352</strong></p>
                             </div>
-                            
-                            <p>Thank you for choosing WE Connect Families. We look forward to serving you!</p>
+
+                            <p>Thank you for choosing JCXPRESS. We look forward to serving you!</p>
 
                             <div style="text-align: center; margin-top: 30px;">
-                                <p><strong>WE Connect Families</strong><br>
-                                Connecting families since 2014<br>
+                                <p><strong>JCXPRESS</strong><br>
                                 📞 (917) 244-5352</p>
                             </div>
                         </div>
@@ -347,7 +346,7 @@ Thank you for choosing WE Connect Families!`;
                 `;
 
                 await emailTransporter.sendMail({
-                    from: `"WE Connect Families" <${process.env.EMAIL_USER}>`,
+                    from: `"JCXPRESS" <${process.env.EMAIL_USER}>`,
                     to: booking.email,
                     subject: `✅ Booking Confirmed - ${booking.facility} on ${visitDate}`,
                     html: emailHtml
@@ -371,7 +370,7 @@ Thank you for choosing WE Connect Families!`;
         if (twilioClient && process.env.TWILIO_PHONE_NUMBER) {
             try {
                 console.log(`📱 Sending rejection SMS to ${booking.phone}`);
-                const smsMessage = `❌ BOOKING UPDATE - WE Connect Families
+                const smsMessage = `❌ BOOKING UPDATE - JCXPRESS
 
 Unfortunately, your transportation booking for ${booking.facility} on ${visitDate} could not be confirmed.
 
@@ -408,13 +407,13 @@ Thank you for understanding.`;
                     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                         <div style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 20px; text-align: center;">
                             <h1>Booking Update</h1>
-                            <p>WE Connect Families Transportation</p>
+                            <p>JCXPRESS Transportation</p>
                         </div>
-                        
+
                         <div style="padding: 30px; background: #f8f9fa;">
                             <h2>Hello ${booking.name},</h2>
                             <p>We regret to inform you that your transportation booking could not be confirmed at this time.</p>
-                            
+
                             <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
                                 <h3>📋 Booking Details:</h3>
                                 <ul style="list-style: none; padding: 0;">
@@ -424,7 +423,7 @@ Thank you for understanding.`;
                                 </ul>
                                 ${reason ? `<p><strong>Reason:</strong> ${reason}</p>` : ''}
                             </div>
-                            
+
                             <div style="background: #fef3cd; padding: 15px; border-radius: 8px; margin: 20px 0;">
                                 <p><strong>Next Steps:</strong></p>
                                 <p>Please call us at <strong>(917) 244-5352</strong> to:</p>
@@ -434,12 +433,11 @@ Thank you for understanding.`;
                                     <li>Get on our waitlist for cancellations</li>
                                 </ul>
                             </div>
-                            
+
                             <p>We apologize for any inconvenience and appreciate your understanding.</p>
-                            
+
                             <div style="text-align: center; margin-top: 30px;">
-                                <p><strong>WE Connect Families</strong><br>
-                                Connecting families since 2014<br>
+                                <p><strong>JCXPRESS</strong><br>
                                 📞 (917) 244-5352</p>
                             </div>
                         </div>
@@ -447,7 +445,7 @@ Thank you for understanding.`;
                 `;
 
                 await emailTransporter.sendMail({
-                    from: `"WE Connect Families" <${process.env.EMAIL_USER}>`,
+                    from: `"JCXPRESS" <${process.env.EMAIL_USER}>`,
                     to: booking.email,
                     subject: `Booking Update - ${booking.facility} on ${visitDate}`,
                     html: emailHtml
