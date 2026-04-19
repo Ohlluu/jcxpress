@@ -56,7 +56,7 @@ async function initializeMongoDB() {
       await mongoClient.connect();
       
       // Test the connection
-      await mongoClient.db('weconnectfamilies').admin().ping();
+      await mongoClient.db('jcxpress').admin().ping();
       
       db = mongoClient.db('jcxpress');
       console.log('✅ MongoDB connected successfully');
@@ -226,6 +226,16 @@ async function saveBookings(data) {
   }
 }
 
+// Format phone to E.164 for Twilio
+function formatPhone(phone) {
+  if (!phone) return null;
+  const digits = phone.replace(/\D/g, '');
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits.startsWith('1')) return `+${digits}`;
+  if (phone.startsWith('+')) return phone;
+  return `+${digits}`;
+}
+
 // SMS Functions
 async function sendConfirmationSMS(booking) {
   if (!twilioClient || !process.env.TWILIO_PHONE_NUMBER) {
@@ -249,7 +259,7 @@ Reply STOP to unsubscribe.`;
     const result = await twilioClient.messages.create({
       body: message,
       from: process.env.TWILIO_PHONE_NUMBER,
-      to: booking.phone
+      to: formatPhone(booking.phone)
     });
 
     console.log(`📱 SMS sent to ${booking.phone}: ${result.sid}`);
@@ -467,12 +477,12 @@ Date: ${visitDate}
 Pickup: ${pickup_location}
 Guests: ${guests || 1}
 
-View: jcxpress.com`;
+View: jcxpressbus.com`;
 
         await twilioClient.messages.create({
           body: adminMessage,
           from: process.env.TWILIO_PHONE_NUMBER,
-          to: process.env.ADMIN_PHONE_NUMBER
+          to: formatPhone(process.env.ADMIN_PHONE_NUMBER)
         });
 
         console.log(`📱 Admin notification sent for booking #${booking.id}`);
@@ -669,7 +679,7 @@ Thank you for understanding.`;
         const result = await twilioClient.messages.create({
           body: message,
           from: process.env.TWILIO_PHONE_NUMBER,
-          to: booking.phone
+          to: formatPhone(booking.phone)
         });
 
         smsResult = { success: true, sid: result.sid };

@@ -2014,7 +2014,7 @@ function generatePrintTemplate(bookings) {
     <!DOCTYPE html>
     <html>
     <head>
-        <title>WE Connect Families - Booking Report</title>
+        <title>JCXPRESS - Booking Report</title>
         <style>
             body { font-family: Arial, sans-serif; margin: 20px; }
             .header { text-align: center; margin-bottom: 30px; }
@@ -2080,4 +2080,4 @@ function getCurrentBookings() {
 
 console.log('🔐 Admin system initialized');
 console.log('📊 Database integration ready');
-console.log('🚀 WE Connect Families booking system loaded');
+console.log('🚀 JCXPRESS booking system loaded');
