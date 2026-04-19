@@ -289,7 +289,7 @@ Your transportation to ${booking.facility} on ${visitDate} has been CONFIRMED!
 📍 Pickup: ${booking.pickup_location}
 👥 Guests: ${booking.guests}
 
-Questions? Call (646) 226-2433
+Questions? Call (917) 244-5352
 Thank you for choosing WE Connect Families!`;
 
                 const smsResult = await twilioClient.messages.create({
@@ -332,7 +332,7 @@ Thank you for choosing WE Connect Families!`;
                             
                             <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                                 <p><strong>Important:</strong> Please arrive 15 minutes early at your pickup location.</p>
-                                <p>Questions or need to make changes? Call us at <strong>(646) 226-2433</strong></p>
+                                <p>Questions or need to make changes? Call us at <strong>(917) 244-5352</strong></p>
                             </div>
                             
                             <p>Thank you for choosing WE Connect Families. We look forward to serving you!</p>
@@ -340,7 +340,7 @@ Thank you for choosing WE Connect Families!`;
                             <div style="text-align: center; margin-top: 30px;">
                                 <p><strong>WE Connect Families</strong><br>
                                 Connecting families since 2014<br>
-                                📞 (646) 226-2433</p>
+                                📞 (917) 244-5352</p>
                             </div>
                         </div>
                     </div>
@@ -377,7 +377,7 @@ Unfortunately, your transportation booking for ${booking.facility} on ${visitDat
 
 ${reason ? `Reason: ${reason}` : ''}
 
-Please call (646) 226-2433 to discuss alternatives or reschedule.
+Please call (917) 244-5352 to discuss alternatives or reschedule.
 
 Thank you for understanding.`;
 
@@ -427,7 +427,7 @@ Thank you for understanding.`;
                             
                             <div style="background: #fef3cd; padding: 15px; border-radius: 8px; margin: 20px 0;">
                                 <p><strong>Next Steps:</strong></p>
-                                <p>Please call us at <strong>(646) 226-2433</strong> to:</p>
+                                <p>Please call us at <strong>(917) 244-5352</strong> to:</p>
                                 <ul>
                                     <li>Discuss alternative dates</li>
                                     <li>Explore other pickup options</li>
@@ -440,7 +440,7 @@ Thank you for understanding.`;
                             <div style="text-align: center; margin-top: 30px;">
                                 <p><strong>WE Connect Families</strong><br>
                                 Connecting families since 2014<br>
-                                📞 (646) 226-2433</p>
+                                📞 (917) 244-5352</p>
                             </div>
                         </div>
                     </div>

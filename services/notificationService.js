@@ -60,7 +60,7 @@ Date: ${formattedDate}
 Pickup: ${booking.pickup_location}
 Guests: ${booking.guests || 1}
 
-View: weconnectfam.com`;
+View: jcxpressbus.com`;
 
     try {
         // Format phone numbers to E.164
@@ -128,7 +128,7 @@ Balance Due on Trip: $${balanceDue}
 
 ⚠️ IMPORTANT: Remaining balance must be paid in CASH on the day of your trip.
 
-Questions? Call (646) 226-2433`;
+Questions? Call (917) 244-5352`;
 
     try {
         const result = await twilioClient.messages.create({
